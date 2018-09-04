@@ -24,7 +24,7 @@ SECRET_KEY = '=!&u0hsc$=f2^p9#olbpej@q8g4p^e1huig8$k(+)m0-^xs6wm'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = ['uxpro.cc']
+ALLOWED_HOSTS = ['uxpro.cc','127.0.0.1']
 
 
 # Application definition
@@ -36,6 +36,7 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+    'prototyping',
 ]
 
 MIDDLEWARE = [
