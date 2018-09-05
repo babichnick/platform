@@ -1,10 +1,65 @@
 {% extends "base_generic.html" %}
 
 {% block content %}
-<ul>
+<table class="table">
+ <thead>
+	<tr>
+		<th scope="col">Name</th>
+		<th scope="col">Platform</th>
+		<th scope="col">Works offline</th>
+		<th scope="col">Free</th>
+		<th scope="col">Subsription</th>
+		<th scope="col">Purchase</th>
+                <th scope="col">Design</th>
+                <th scope="col">Artboards</th>
+                <th scope="col">Symbols</th>
+                <th scope="col">Pen Tool</th>
+                <th scope="col">Responsive</th>
+                <th scope="col">Hotspots</th>
+                <th scope="col">Animations</th>
+                <th scope="col">Transitions</th>
+                <th scope="col">Analytics</th>
+                <th scope="col">Heatmaps</th>
+                <th scope="col">Sensors</th>
+                <th scope="col">Handoff</th>
+                <th scope="col">Export Assets</th>
+	</tr>
+   </thead>
+   <tbody>
    {% for tool in prototyping_tools %}
-  <li>{{ tool.name }}</li>
+        <tr>
+		<td>{{ tool.name }}</td>
+		<td>
+			{% if tool.availablefor_web %}Web{% endif %}
+			{% if tool.availablefor_mac %}Mac{% endif %}
+			{% if tool.availablefor_windows %}Windows{% endif %}
+			{% if tool.availablefor_linux %}Linux{% endif %}
+			{% if tool.availablefor_ios %}iOS{% endif %}
+			{% if tool.availablefor_android %}Android{% endif %}
+		</td>
+		<td>{% if tool.works_offline %}Yes{% endif %}</td>
+		<td>{% if tool.free %}Yes{% endif %}</td>
+		<td>{{ tool.cost_subscription }}</td>
+		<td>{{ tool.cost_purchase }}</td>
+
+		<td>{% if tool.design %}Yes{% endif %}</td>
+                <td>{% if tool.artboards %}Yes{% endif %}</td>
+                <td>{% if tool.symbols %}Yes{% endif %}</td>
+                <td>{% if tool.pen_tool %}Yes{% endif %}</td>
+                <td>{% if tool.responsive %}Yes{% endif %}</td>
+                <td>{% if tool.hotspots %}Yes{% endif %}</td>
+                <td>{% if tool.animations %}Yes{% endif %}</td>
+                <td>{% if tool.transitions %}Yes{% endif %}</td>
+
+                <td>{% if tool.analytics %}Yes{% endif %}</td>
+                <td>{% if tool.heatmaps %}Yes{% endif %}</td>
+                <td>{% if tool.sensors %}Yes{% endif %}</td>
+
+                <td>{% if tool.handoff %}Yes{% endif %}</td>
+                <td>{% if tool.export_assets %}Yes{% endif %}</td>
+	</tr>
    {% endfor %}
-</ul>
+   </tbody>
+</table>
 {% endblock %}
 

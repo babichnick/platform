@@ -3,6 +3,7 @@ from django.db import models
 DEFAULT = 'nologo.jpg'
 
 class PrototypingTool(models.Model):
+   abbreviation = models.CharField(max_length=50, help_text="Abbreviation of the app", default="")
    name = models.CharField(max_length=100, help_text="name of app")
    description = models.TextField(default = "") 
    logo = models.ImageField(default=DEFAULT, upload_to='protologo/')
