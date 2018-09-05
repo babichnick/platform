@@ -1,0 +1,10 @@
+{% extends "base_generic.html" %}
+
+{% block content %}
+<ul>
+   {% for tool in prototyping_tools %}
+  <li>{{ tool.name }}</li>
+   {% endfor %}
+</ul>
+{% endblock %}
+
