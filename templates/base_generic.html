@@ -4,6 +4,9 @@
 <head>
   {% block title %}<title>Local Library</title>{% endblock %}
    <link href="{% static '/bootstrap/css/bootstrap.css'%}" rel="stylesheet">
+  {% block libraries %}
+     
+  {% endblock%}
 </head>
 <body>
   {% block content %}<!-- default content text (typically empty) -->{% endblock %}

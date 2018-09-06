@@ -1,7 +1,90 @@
 {% extends "base_generic.html" %}
+{% load static %}
+
+{% block libraries %}
+
+   <style> 
+     thead {
+ 	  background: white;
+       	}
+	
+     .tablesorter .filtered {
+          display: none;
+        }
+
+     .first-col {
+       position: sticky;
+       left: 0px;
+       background-color: #ffffff;
+        }
+   </style> 
+
+
+
+   <script src="{% static '/jquery/jquery-latest.js'%}"></script>
+   <script src="{% static '/jquery/jquery.tablesorter.js'%}"></script>
+   <script src="{% static '/jquery/jquery.tablesorter.widgets.js'%}"></script>
+
+   <script type="text/javascript">
+	$(function() {
+
+  $("#toolstable").tablesorter({
+    theme : "bootstrap",
+
+    widthFixed: true,
+	debug: true,
+
+ 
+    widgets : [ "filter", "columns","zebra", "stickyHeaders" ],
+
+    widgetOptions : {
+     
+	 zebra : ["even", "odd"],
+	 
+      // class names added to columns when sorted
+      columns: [ "primary", "secondary", "tertiary" ],
+
+      // reset filters button
+      filter_reset : ".reset",
+
+      // extra css class name (string or array) added to the filter element (input or select)
+      filter_cssFilter: [
+        'form-control',
+        'form-control',
+        'form-control', 
+        'form-control',
+        'form-control',
+        'form-control',
+        'form-control',
+        'form-control',
+        'form-control',
+        'form-control', 
+        'form-control',
+        'form-control',
+        'form-control',
+        'form-control',
+        'form-control',
+        'form-control',
+        'form-control', 
+        'form-control',
+        'form-control'
+      ]
+
+    }
+  })
+
+
+});
+	</script>
+
+
+
+
+{% endblock %}
 
 {% block content %}
-<table class="table">
+<button type="button" class="reset btn btn-primary" data-column="0" data-filter="">Reset filters</button>
+<table id="toolstable" class="table table-bordered">
  <thead>
 	<tr>
 		<th scope="col">Name</th>
@@ -28,7 +111,7 @@
    <tbody>
    {% for tool in prototyping_tools %}
         <tr>
-		<td>{{ tool.name }}</td>
+		<td class="first-col">{{ tool.name }}</td>
 		<td>
 			{% if tool.availablefor_web %}Web{% endif %}
 			{% if tool.availablefor_mac %}Mac{% endif %}
