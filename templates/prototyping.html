@@ -90,14 +90,14 @@
 	<tr>
 		<th scope="col">Name</th>
 		<th scope="col">Platform</th>
-		<th scope="col">Works offline</th>
+		<th scope="col" class="text-nowrap">Works Offline</th>
 		<th scope="col">Free</th>
 		<th scope="col">Subsription</th>
 		<th scope="col">Purchase</th>
                 <th scope="col">Design</th>
                 <th scope="col">Artboards</th>
                 <th scope="col">Symbols</th>
-                <th scope="col">Pen Tool</th>
+                <th scope="col" class="text-nowrap">Pen Tool</th>
                 <th scope="col">Responsive</th>
                 <th scope="col">Hotspots</th>
                 <th scope="col">Animations</th>
@@ -106,13 +106,13 @@
                 <th scope="col">Heatmaps</th>
                 <th scope="col">Sensors</th>
                 <th scope="col">Handoff</th>
-                <th scope="col">Export Assets</th>
+                <th scope="col" class="text-nowrap">Export Assets</th>
 	</tr>
    </thead>
    <tbody>
    {% for tool in prototyping_tools %}
         <tr>
-		<td class="first-col">{{ tool.name }}</td>
+		<td class="first-col text-nowrap">{{ tool.name }}</td>
 		<td>
 			{% if tool.availablefor_web %}Web{% endif %}
 			{% if tool.availablefor_mac %}Mac{% endif %}
