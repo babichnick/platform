@@ -7,6 +7,7 @@ class PrototypingTool(models.Model):
    name = models.CharField(max_length=100, help_text="name of app")
    description = models.TextField(default = "") 
    logo = models.ImageField(default=DEFAULT, upload_to='protologo/')
+   website = models.CharField(max_length=300, help_text="website address", default="http://")
 
    #published
    published = models.BooleanField(default = False, help_text="Tool is visible in the list")

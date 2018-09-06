@@ -14,6 +14,7 @@
 
      .first-col {
        position: sticky;
+       position: -webkit-sticky;
        left: 0px;
        background-color: #ffffff;
         }
@@ -84,7 +85,7 @@
 
 {% block content %}
 <button type="button" class="reset btn btn-primary" data-column="0" data-filter="">Reset filters</button>
-<table id="toolstable" class="table table-bordered">
+<table id="toolstable" class="table table-bordered table-hover">
  <thead>
 	<tr>
 		<th scope="col">Name</th>
