@@ -3,7 +3,15 @@
 
 {% block libraries %}
 
-   <style> 
+   <style>
+     
+     th {
+	         min-width: 100px;
+     }
+     td {
+	         min-width: 100px;
+     }
+
      thead {
  	  background: white;
        	}
@@ -84,6 +92,13 @@
 {% endblock %}
 
 {% block content %}
+
+<div class="d-flex flex-row"> 
+	
+	<div class="p-2"><img src="{% get_media_prefix %}check.png" width="36px"></div>
+        <div class="p-2"><img src="{% get_media_prefix %}check.png" width="36px"></div>
+        <div class="p-2"><img src="{% get_media_prefix %}check.png" width="36px"></div>
+</div>
 <button type="button" class="reset btn btn-primary" data-column="0" data-filter="">Reset filters</button>
 <table id="toolstable" class="table table-bordered table-hover">
  <thead>
@@ -121,26 +136,26 @@
 			{% if tool.availablefor_ios %}iOS{% endif %}
 			{% if tool.availablefor_android %}Android{% endif %}
 		</td>
-		<td>{% if tool.works_offline %}Yes{% endif %}</td>
-		<td>{% if tool.free %}Yes{% endif %}</td>
+		<td>{% if tool.works_offline %}<img src="{% get_media_prefix %}check.png" width="36px">{% endif %}</td>
+		<td>{% if tool.free %}<img src="{% get_media_prefix %}check.png" width="36px">{% endif %}</td>
 		<td>{{ tool.cost_subscription }}</td>
 		<td>{{ tool.cost_purchase }}</td>
 
-		<td>{% if tool.design %}Yes{% endif %}</td>
-                <td>{% if tool.artboards %}Yes{% endif %}</td>
-                <td>{% if tool.symbols %}Yes{% endif %}</td>
-                <td>{% if tool.pen_tool %}Yes{% endif %}</td>
-                <td>{% if tool.responsive %}Yes{% endif %}</td>
-                <td>{% if tool.hotspots %}Yes{% endif %}</td>
-                <td>{% if tool.animations %}Yes{% endif %}</td>
-                <td>{% if tool.transitions %}Yes{% endif %}</td>
+		<td>{% if tool.design %}<img src="{% get_media_prefix %}check.png" width="36px">{% endif %}</td>
+                <td>{% if tool.artboards %}<img src="{% get_media_prefix %}check.png" width="36px">{% endif %}</td>
+                <td>{% if tool.symbols %}<img src="{% get_media_prefix %}check.png" width="36px">{% endif %}</td>
+                <td>{% if tool.pen_tool %}<img src="{% get_media_prefix %}check.png" width="36px">{% endif %}</td>
+                <td>{% if tool.responsive %}<img src="{% get_media_prefix %}check.png" width="36px">{% endif %}</td>
+                <td>{% if tool.hotspots %}<img src="{% get_media_prefix %}check.png" width="36px">{% endif %}</td>
+                <td>{% if tool.animations %}<img src="{% get_media_prefix %}check.png" width="36px">{% endif %}</td>
+                <td>{% if tool.transitions %}<img src="{% get_media_prefix %}check.png" width="36px">{% endif %}</td>
 
-                <td>{% if tool.analytics %}Yes{% endif %}</td>
-                <td>{% if tool.heatmaps %}Yes{% endif %}</td>
-                <td>{% if tool.sensors %}Yes{% endif %}</td>
+                <td>{% if tool.analytics %}<img src="{% get_media_prefix %}check.png" width="36px">{% endif %}</td>
+                <td>{% if tool.heatmaps %}<img src="{% get_media_prefix %}check.png" width="36px">{% endif %}</td>
+                <td>{% if tool.sensors %}<img src="{% get_media_prefix %}check.png" width="36px">{% endif %}</td>
 
-                <td>{% if tool.handoff %}Yes{% endif %}</td>
-                <td>{% if tool.export_assets %}Yes{% endif %}</td>
+                <td>{% if tool.handoff %}<img src="{% get_media_prefix %}check.png" width="36px">{% endif %}</td>
+                <td>{% if tool.export_assets %}<img src="{% get_media_prefix %}check.png" width="36px">{% endif %}</td>
 	</tr>
    {% endfor %}
    </tbody>
