@@ -2,10 +2,11 @@ from django.db import models
 
 DEFAULT = 'nologo.jpg'
 
-class PrototypingTool(models.Model):
+
+class Tool(models.Model):
    abbreviation = models.CharField(max_length=50, help_text="Abbreviation of the app", default="")
    name = models.CharField(max_length=100, help_text="name of app")
-   description = models.TextField(default = "") 
+   description = models.TextField(default = "")
    logo = models.ImageField(default=DEFAULT, upload_to='protologo/')
    website = models.CharField(max_length=300, help_text="website address", default="http://")
 
@@ -28,7 +29,11 @@ class PrototypingTool(models.Model):
    availablefor_linux = models.BooleanField(default = False, help_text="Tool has a Linux version")
    availablefor_ios = models.BooleanField(default = False, help_text="Tool has iOS version")
    availablefor_android = models.BooleanField(default = False, help_text="Tool has Android version")
-   
+ 
+   def __str__(self):
+        return "%s" % self.name
+
+class PrototypingTool(Tool):
    #features
    design = models.BooleanField(default = False, help_text="App can design from scratch")
    artboards = models.BooleanField(default = False, help_text="Multiple visible artboards")
@@ -49,3 +54,21 @@ class PrototypingTool(models.Model):
 
    collaboration = models.BooleanField(default = False, help_text="Simultaneous editing")
    comments = models.BooleanField(default = False, help_text= "Team members can leave comments")
+
+   def __str__(self):
+        return "%s" % self.name
+
+class Author(models.Model):
+    full_name = models.CharField(max_length=100)
+    email = models.EmailField()
+
+    def __str__(self):
+        return "%s" % (self.full_name)
+
+class Publication(models.Model):
+    headline = models.CharField(max_length=100)
+    pub_date = models.DateField()
+    author = models.ForeignKey(Author, on_delete=models.CASCADE)
+
+    def __str__(self):
+        return self.headline
