@@ -69,6 +69,7 @@ class Publication(models.Model):
     headline = models.CharField(max_length=100)
     pub_date = models.DateField()
     author = models.ForeignKey(Author, on_delete=models.CASCADE)
+    tool = models.ForeignKey(Tool, on_delete=models.CASCADE, blank=True, null=True)
 
     def __str__(self):
         return self.headline
