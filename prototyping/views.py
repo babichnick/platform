@@ -13,7 +13,7 @@ def prototyping(request):
     return render(request, 'prototyping.html', context = context)
 
 def tool(request, abbr):
-    tool = Tool.objects.filter(abbreviation=abbr)
+    tool = Tool.objects.get(abbreviation=abbr)
     context = {'tool': tool }
     return render(request, 'tool.html', context = context)
 
