@@ -1,0 +1,7 @@
+{% extends "base_generic.html" %}
+
+{% block content %}
+ {% for publication in publications %} 
+ <h1>{{ publication.title }}</h1>
+ {% endfor %}
+{% endblock %}

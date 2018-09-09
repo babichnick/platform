@@ -14,7 +14,7 @@ class AuthorAdmin(admin.ModelAdmin):
     list_diplay = ('full_name',)
 
 class PublicationAdmin(admin.ModelAdmin):
-    list_display = ('headline',)
+    list_display = ('title',)
 
 # Register your models here.
 admin.site.register(Tool, ToolAdmin)

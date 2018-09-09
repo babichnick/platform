@@ -4,7 +4,7 @@ DEFAULT = 'nologo.jpg'
 
 
 class Tool(models.Model):
-   abbreviation = models.CharField(max_length=50, help_text="Abbreviation of the app", default="")
+   abbreviation = models.CharField(max_length=50, help_text="Abbreviation of the app", default="", unique=True)
    name = models.CharField(max_length=100, help_text="name of app")
    description = models.TextField(default = "")
    logo = models.ImageField(default=DEFAULT, upload_to='protologo/')
@@ -66,10 +66,12 @@ class Author(models.Model):
         return "%s" % (self.full_name)
 
 class Publication(models.Model):
-    headline = models.CharField(max_length=100)
+    title = models.CharField(max_length=500, default="")
+    content = models.TextField(max_length=8000, default="")
+    slug = models.SlugField(max_length=200, default="")
     pub_date = models.DateField()
     author = models.ForeignKey(Author, on_delete=models.CASCADE)
     tool = models.ForeignKey(Tool, on_delete=models.CASCADE, blank=True, null=True)
 
     def __str__(self):
-        return self.headline
+        return self.title
