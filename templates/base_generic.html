@@ -2,11 +2,16 @@
 {% load static %}
 <html lang="en">
 <head>
-  {% block title %}<title>Local Library</title>{% endblock %}
+ <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+
    <link href="{% static '/bootstrap/css/bootstrap.css'%}" rel="stylesheet">
   {% block libraries %}
      
   {% endblock%}
+  {% block title %}<title>Local Library</title>{% endblock %}
 </head>
 <body>
   {% block content %}<!-- default content text (typically empty) -->{% endblock %}
