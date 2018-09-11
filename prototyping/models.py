@@ -69,9 +69,12 @@ class Publication(models.Model):
     title = models.CharField(max_length=500, default="")
     content = models.TextField(max_length=8000, default="")
     slug = models.SlugField(max_length=200, default="")
-    pub_date = models.DateField()
+    pub_date = models.DateTimeField()
     author = models.ForeignKey(Author, on_delete=models.CASCADE)
     tool = models.ForeignKey(Tool, on_delete=models.CASCADE, blank=True, null=True)
 
     def __str__(self):
         return self.title
+
+    def get_absolute_url(self):
+        return "/publications/%s/" % self.slug

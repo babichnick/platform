@@ -2,12 +2,30 @@
   body {
     padding-top: 56px;
   }
+}
 
 body {
   padding-top: 54px;
 }
 
 .portfolio-item {
+  margin-bottom: 30px;
+}
+
+.navbar-brand
+{
+  font-size: 36px;
+}
+
+.headcardtitle 
+{
+   font-size: 30px;
+}
+
+.headcard {
+  border: none;
+}
+.headcard-item {
   margin-bottom: 30px;
 }
 }
