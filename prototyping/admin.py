@@ -1,5 +1,8 @@
-from prototyping.models import Tool, PrototypingTool, Author, Publication 
+from prototyping.models import Tool, PrototypingTool, Author, Category, Publication 
 from django.contrib import admin
+
+class CategoryAdmin(admin.ModelAdmin):
+    list_display = ('name',)
 
 class ToolAdmin(admin.ModelAdmin):
     list_display = ('name', 'published')
@@ -20,6 +23,7 @@ class PublicationAdmin(admin.ModelAdmin):
 admin.site.register(Tool, ToolAdmin)
 admin.site.register(PrototypingTool, PrototypingToolAdmin)
 admin.site.register(Author, AuthorAdmin)
+admin.site.register(Category, CategoryAdmin)
 admin.site.register(Publication, PublicationAdmin)
 
 #class PrototypingToolInline(admin.TabularInline):

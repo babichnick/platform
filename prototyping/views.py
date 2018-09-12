@@ -4,7 +4,7 @@ from django.shortcuts import render
 from .models import Tool, PrototypingTool, Publication
 
 def index(request):
-    publications_list = Publication.objects.order_by('-pub_date')
+    publications_list = Publication.objects.all()#order_by('-pub_date')
     
 
     paginator = Paginator(publications_list, 14) # Show 14 latest publications
