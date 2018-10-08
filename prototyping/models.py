@@ -120,3 +120,68 @@ class Publication(models.Model):
 
     def get_absolute_url(self):
         return "/publications/%s/" % self.slug
+
+
+class City(models.Model):
+
+    REGION_CHOICES = (
+         (1, 'Europe'),
+         (2, 'North America'), 
+         (3, 'South America'), 
+         (4, 'Middle East'), 
+         (5, 'Africa'), 
+         (6, 'Asia'), 
+         (7, 'Oceania'), 
+    )
+
+
+    class Meta:
+        verbose_name_plural = "Cities"
+
+    title = models.CharField(max_length=200, default="")
+    slug = models.SlugField(max_length=200, default="")
+
+    country = models.CharField(max_length=200, default="")
+    region = models.IntegerField(choices=REGION_CHOICES, default=1)
+
+    lat = models.DecimalField(max_digits=10, decimal_places=8, blank=True, null=True)
+    lng = models.DecimalField(max_digits=11, decimal_places=8, blank=True, null=True)
+
+    def __str__(self):
+        return self.title
+
+
+class Conference(models.Model):
+
+    STATUS_CHOICES = (
+         (1, 'Draft'),
+         (2, 'Public'), 
+    )
+
+    class Meta:
+        verbose_name_plural = "Conferences"
+
+    title = models.CharField(max_length=500, default="")
+    slug = models.SlugField(max_length=200, default="")
+
+    pub_date = models.DateTimeField(default=datetime.datetime.now)
+    created = models.DateTimeField(auto_now_add=True)
+    modified = models.DateTimeField(auto_now=True)
+
+
+    tease = models.TextField()
+    content = models.TextField(max_length=8000, default="")
+
+    status = models.IntegerField(choices=STATUS_CHOICES, default=1)
+    city = models.ForeignKey(City, on_delete=models.CASCADE)
+    from_date = models.DateField(default=datetime.datetime.now)
+    to_date = models.DateField(default=datetime.datetime.now)
+
+    logo = models.ImageField(default=DEFAULT, upload_to='conflogo/')
+    website = models.CharField(max_length=300, help_text="website address", default="http://")
+
+    def __str__(self):
+        return self.title
+
+    def get_absolute_url(self):
+        return "/conferences/%s/" % self.slug

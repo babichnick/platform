@@ -1,4 +1,4 @@
-from prototyping.models import Tool, PrototypingTool, Author, Category, Publication 
+from prototyping.models import Tool, PrototypingTool, Author, Category, Publication, City, Conference
 from django.contrib import admin
 
 class CategoryAdmin(admin.ModelAdmin):
@@ -19,12 +19,22 @@ class AuthorAdmin(admin.ModelAdmin):
 class PublicationAdmin(admin.ModelAdmin):
     list_display = ('title',)
 
+class CityAdmin(admin.ModelAdmin):
+    list_diplay = ('title',)
+
+class ConferenceAdmin(admin.ModelAdmin):
+    list_diplay = ('title',)
+
 # Register your models here.
 admin.site.register(Tool, ToolAdmin)
 admin.site.register(PrototypingTool, PrototypingToolAdmin)
 admin.site.register(Author, AuthorAdmin)
 admin.site.register(Category, CategoryAdmin)
 admin.site.register(Publication, PublicationAdmin)
+
+admin.site.register(City, CityAdmin)
+admin.site.register(Conference, ConferenceAdmin)
+
 
 #class PrototypingToolInline(admin.TabularInline):
 #    model = PrototypingTool
