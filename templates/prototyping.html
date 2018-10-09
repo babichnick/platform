@@ -102,9 +102,9 @@
 <button type="button" class="reset btn btn-primary" data-column="0" data-filter="">Reset filters</button>
 <table id="toolstable" class="table table-bordered table-responsive table-hover">
  <thead>
-	<tr>
+	<tr style="text-align:center">
 		<th scope="col">Name</th>
-		<th scope="col">Platform</th>
+		<th scope="col" style="min-width: 200px;">Platform</th>
 		<th scope="col" class="text-nowrap">Works Offline</th>
 		<th scope="col">Free</th>
 		<th scope="col">Subsription</th>
@@ -127,35 +127,35 @@
    <tbody>
    {% for tool in prototyping_tools %}
         <tr>
-		<td class="first-col text-nowrap">{{ tool.name }}</td>
+		<td class="first-col text-nowrap"><img src="{% get_media_prefix %}{{ tool.logo }}" width="36px"> {{ tool.name }}</td>
 		<td>
-			{% if tool.availablefor_web %}Web{% endif %}
-			{% if tool.availablefor_mac %}Mac{% endif %}
-			{% if tool.availablefor_windows %}Windows{% endif %}
-			{% if tool.availablefor_linux %}Linux{% endif %}
-			{% if tool.availablefor_ios %}iOS{% endif %}
-			{% if tool.availablefor_android %}Android{% endif %}
+			{% if tool.availablefor_web %}  {% include "web.html" %} {% endif %}
+			{% if tool.availablefor_mac %} {% include "mac.html" %}  {% endif %}
+			{% if tool.availablefor_windows %} {% include "windows.html" %} {% endif %}
+			{% if tool.availablefor_linux %} {% include "linux.html" %} {% endif %}
+			{% if tool.availablefor_ios %} {% include "ios.html" %} {% endif %}
+			{% if tool.availablefor_android %} {% include "android.html" %} {% endif %}
 		</td>
-		<td>{% if tool.works_offline %}<img src="{% get_media_prefix %}check.png" width="36px">{% endif %}</td>
-		<td>{% if tool.free %}<img src="{% get_media_prefix %}check.png" width="36px">{% endif %}</td>
+		<td style="text-align:center">{% if tool.works_offline %} {% include "checkmark.html" %} {% endif %}</td>
+		<td style="text-align:center">{% if tool.free %} {% include "checkmark.html" %} {% endif %}</td>
 		<td>{{ tool.cost_subscription }}</td>
 		<td>{{ tool.cost_purchase }}</td>
 
-		<td>{% if tool.design %}<img src="{% get_media_prefix %}check.png" width="36px">{% endif %}</td>
-                <td>{% if tool.artboards %}<img src="{% get_media_prefix %}check.png" width="36px">{% endif %}</td>
-                <td>{% if tool.symbols %}<img src="{% get_media_prefix %}check.png" width="36px">{% endif %}</td>
-                <td>{% if tool.pen_tool %}<img src="{% get_media_prefix %}check.png" width="36px">{% endif %}</td>
-                <td>{% if tool.responsive %}<img src="{% get_media_prefix %}check.png" width="36px">{% endif %}</td>
-                <td>{% if tool.hotspots %}<img src="{% get_media_prefix %}check.png" width="36px">{% endif %}</td>
-                <td>{% if tool.animations %}<img src="{% get_media_prefix %}check.png" width="36px">{% endif %}</td>
-                <td>{% if tool.transitions %}<img src="{% get_media_prefix %}check.png" width="36px">{% endif %}</td>
+		<td style="text-align:center">{% if tool.design %} {% include "checkmark.html" %} {% endif %}</td>
+                <td style="text-align:center">{% if tool.artboards %} {% include "checkmark.html" %} {% endif %}</td>
+                <td style="text-align:center">{% if tool.symbols %} {% include "checkmark.html" %} {% endif %}</td>
+                <td style="text-align:center">{% if tool.pen_tool %} {% include "checkmark.html" %} {% endif %}</td>
+                <td style="text-align:center">{% if tool.responsive %} {% include "checkmark.html" %} {% endif %}</td>
+                <td style="text-align:center">{% if tool.hotspots %} {% include "checkmark.html" %} {% endif %}</td>
+                <td style="text-align:center">{% if tool.animations %} {% include "checkmark.html" %} {% endif %}</td>
+		<td style="text-align:center">{% if tool.transitions %} {% include "checkmark.html" %} {% endif %}</td>
 
-                <td>{% if tool.analytics %}<img src="{% get_media_prefix %}check.png" width="36px">{% endif %}</td>
-                <td>{% if tool.heatmaps %}<img src="{% get_media_prefix %}check.png" width="36px">{% endif %}</td>
-                <td>{% if tool.sensors %}<img src="{% get_media_prefix %}check.png" width="36px">{% endif %}</td>
+                <td style="text-align:center">{% if tool.analytics %} {% include "checkmark.html" %} {% endif %}</td>
+                <td style="text-align:center">{% if tool.heatmaps %} {% include "checkmark.html" %} {% endif %}</td>
+                <td style="text-align:center">{% if tool.sensors %} {% include "checkmark.html" %} {% endif %}</td>
 
-                <td>{% if tool.handoff %}<img src="{% get_media_prefix %}check.png" width="36px">{% endif %}</td>
-                <td>{% if tool.export_assets %}<img src="{% get_media_prefix %}check.png" width="36px">{% endif %}</td>
+                <td style="text-align:center">{% if tool.handoff %} {% include "checkmark.html" %} {% endif %}</td>
+                <td style="text-align:center">{% if tool.export_assets %} {% include "checkmark.html" %} {% endif %}</td>
 	</tr>
    {% endfor %}
    </tbody>
