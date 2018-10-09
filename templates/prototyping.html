@@ -30,9 +30,22 @@
 
 
 
+
+
+
    <script src="{% static '/jquery/jquery-latest.js'%}"></script>
    <script src="{% static '/jquery/jquery.tablesorter.js'%}"></script>
    <script src="{% static '/jquery/jquery.tablesorter.widgets.js'%}"></script>
+
+   <script src="{% static '/bootstrap/js/bootstrap.bundle.min.js'%}"></script>
+
+
+    <script>
+     $(document).ready(function(){
+     $('[data-toggle="tooltip"]').tooltip();
+   });
+   </script>
+
 
    <script type="text/javascript">
 	$(function() {
@@ -99,7 +112,12 @@
         <div class="p-2"><img src="{% get_media_prefix %}check.png" width="36px"></div>
         <div class="p-2"><img src="{% get_media_prefix %}check.png" width="36px"></div>
 </div>
+
 <button type="button" class="reset btn btn-primary" data-column="0" data-filter="">Reset filters</button>
+
+
+
+
 <table id="toolstable" class="table table-bordered table-responsive table-hover">
  <thead>
 	<tr style="text-align:center">
@@ -136,7 +154,7 @@
 			{% if tool.availablefor_ios %} {% include "ios.html" %} {% endif %}
 			{% if tool.availablefor_android %} {% include "android.html" %} {% endif %}
 		</td>
-		<td style="text-align:center">{% if tool.works_offline %} {% include "checkmark.html" %} {% endif %}</td>
+		<td style="text-align:center">{% if tool.works_offline %} {% include "worksoffline.html" %} {% endif %}</td>
 		<td style="text-align:center">{% if tool.free %} {% include "checkmark.html" %} {% endif %}</td>
 		<td>{{ tool.cost_subscription }}</td>
 		<td>{{ tool.cost_purchase }}</td>
