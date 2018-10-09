@@ -26,13 +26,11 @@
        left: 0px;
        background-color: #ffffff;
         }
+
    </style> 
 
 
-
-
-
-
+   <link rel="stylesheet" href="{% static '/css/theme.bootstrap_4.css'%}">
    <script src="{% static '/jquery/jquery-latest.js'%}"></script>
    <script src="{% static '/jquery/jquery.tablesorter.js'%}"></script>
    <script src="{% static '/jquery/jquery.tablesorter.widgets.js'%}"></script>
@@ -54,14 +52,15 @@
     theme : "bootstrap",
 
     widthFixed: true,
-	debug: true,
+	  debug: true,
 
  
     widgets : [ "filter", "columns","zebra", "stickyHeaders" ],
 
     widgetOptions : {
+
      
-	 zebra : ["even", "odd"],
+	    zebra : ["even", "odd"],
 	 
       // class names added to columns when sorted
       columns: [ "primary", "secondary", "tertiary" ],
@@ -73,23 +72,23 @@
       filter_cssFilter: [
         'form-control',
         'form-control',
-        'form-control', 
+        'form-control custom-select', 
+        'form-control custom-select',
         'form-control',
         'form-control',
-        'form-control',
-        'form-control',
-        'form-control',
-        'form-control',
-        'form-control', 
-        'form-control',
-        'form-control',
-        'form-control',
-        'form-control',
-        'form-control',
-        'form-control',
-        'form-control', 
-        'form-control',
-        'form-control'
+        'form-control custom-select',
+        'form-control custom-select',
+        'form-control custom-select',
+        'form-control custom-select', 
+        'form-control custom-select',
+        'form-control custom-select',
+        'form-control custom-select',
+        'form-control custom-select',
+        'form-control custom-select',
+        'form-control custom-select',
+        'form-control custom-select', 
+        'form-control custom-select',
+        'form-control custom-select'
       ]
 
     }
@@ -106,12 +105,6 @@
 
 {% block content %}
 
-<div class="d-flex flex-row"> 
-	
-	<div class="p-2"><img src="{% get_media_prefix %}check.png" width="36px"></div>
-        <div class="p-2"><img src="{% get_media_prefix %}check.png" width="36px"></div>
-        <div class="p-2"><img src="{% get_media_prefix %}check.png" width="36px"></div>
-</div>
 
 <button type="button" class="reset btn btn-primary" data-column="0" data-filter="">Reset filters</button>
 
@@ -119,27 +112,27 @@
 
 
 <table id="toolstable" class="table table-bordered table-responsive table-hover">
- <thead>
+ <thead class="thead-dark">
 	<tr style="text-align:center">
 		<th scope="col">Name</th>
-		<th scope="col" style="min-width: 200px;">Platform</th>
-		<th scope="col" class="text-nowrap">Works Offline</th>
-		<th scope="col">Free</th>
-		<th scope="col">Subsription</th>
-		<th scope="col">Purchase</th>
-                <th scope="col">Design</th>
-                <th scope="col">Artboards</th>
-                <th scope="col">Symbols</th>
-                <th scope="col" class="text-nowrap">Pen Tool</th>
-                <th scope="col">Responsive</th>
-                <th scope="col">Hotspots</th>
-                <th scope="col">Animations</th>
-                <th scope="col">Transitions</th>
-                <th scope="col">Analytics</th>
-                <th scope="col">Heatmaps</th>
-                <th scope="col">Sensors</th>
-                <th scope="col">Handoff</th>
-                <th scope="col" class="text-nowrap">Export Assets</th>
+		<th scope="col" style="min-width: 200px;" data-placeholder="Try Mac, Windows, Linux, etc">Platform</th>
+		<th scope="col" class="text-nowrap filter-select filter-exact" data-placeholder="-">Works Offline</th>
+		<th scope="col" class="filter-select filter-exact" data-placeholder="-">Free</th>
+		<th scope="col" data-placeholder="Try <9.99">Subsription</th>
+		<th scope="col" data-placeholder="Try <99">Purchase</th>
+    <th scope="col" class="filter-select filter-exact" data-placeholder="-">Design</th>
+    <th scope="col" class="filter-select filter-exact" data-placeholder="-">Artboards</th>
+    <th scope="col" class="filter-select filter-exact" data-placeholder="-">Symbols</th>
+    <th scope="col" class="text-nowrap filter-select filter-exact" data-placeholder="-">Pen Tool</th>
+    <th scope="col" class="filter-select filter-exact" data-placeholder="-">Responsive</th>
+    <th scope="col" class="filter-select filter-exact" data-placeholder="-">Hotspots</th>
+    <th scope="col" class="filter-select filter-exact" data-placeholder="-">Animations</th>
+    <th scope="col" class="filter-select filter-exact" data-placeholder="-">Transitions</th>
+    <th scope="col" class="filter-select filter-exact" data-placeholder="-">Analytics</th>
+    <th scope="col" class="filter-select filter-exact" data-placeholder="-">Heatmaps</th>
+    <th scope="col" class="filter-select filter-exact" data-placeholder="-">Sensors</th>
+    <th scope="col" class="filter-select filter-exact" data-placeholder="-">Handoff</th>
+    <th scope="col" class="text-nowrap filter-select filter-exact" data-placeholder="-">Export Assets</th>
 	</tr>
    </thead>
    <tbody>
