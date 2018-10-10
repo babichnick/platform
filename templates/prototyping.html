@@ -1,10 +1,15 @@
-{% extends "base_generic.html" %}
+{% extends "regular_page.html" %}
 {% load static %}
 
 {% block libraries %}
 
+
+   <link rel="stylesheet" href="{% static '/css/theme.bootstrap_4.css'%}">
+
+
    <style>
-     
+   
+
      th {
 	         min-width: 100px;
      }
@@ -12,25 +17,23 @@
 	         min-width: 100px;
      }
 
+
      thead {
  	  background: white;
        	}
-	
-     .tablesorter .filtered {
-          display: none;
-        }
-
-     .first-col {
+     
+   .first-col {
        position: sticky;
        position: -webkit-sticky;
        left: 0px;
        background-color: #ffffff;
         }
 
+
+    
    </style> 
 
-
-   <link rel="stylesheet" href="{% static '/css/theme.bootstrap_4.css'%}">
+ 
    <script src="{% static '/jquery/jquery-latest.js'%}"></script>
    <script src="{% static '/jquery/jquery.tablesorter.js'%}"></script>
    <script src="{% static '/jquery/jquery.tablesorter.widgets.js'%}"></script>
@@ -55,18 +58,22 @@
 	  debug: true,
 
  
-    widgets : [ "filter", "columns","zebra", "stickyHeaders" ],
+    widgets : [ "columns","zebra", "filter", "stickyHeaders" ],
 
     widgetOptions : {
 
      
 	    zebra : ["even", "odd"],
-	 
+
+     
+
+
       // class names added to columns when sorted
       columns: [ "primary", "secondary", "tertiary" ],
+    
 
       // reset filters button
-      filter_reset : ".reset",
+      filter_reset : ".reset", 
 
       // extra css class name (string or array) added to the filter element (input or select)
       filter_cssFilter: [
@@ -105,12 +112,12 @@
 
 {% block content %}
 
+<div class="container-fluid">
 
-<button type="button" class="reset btn btn-primary" data-column="0" data-filter="">Reset filters</button>
-
-
-
-
+ <div class="row justify-content-end">
+    <button type="button" class="reset btn btn-outline-dark btn-sm" data-column="0" data-filter="">Reset filters</button>
+  </div> 
+  <div class="row"> 
 <table id="toolstable" class="table table-bordered table-responsive table-hover">
  <thead class="thead-dark">
 	<tr style="text-align:center">
@@ -171,5 +178,8 @@
    {% endfor %}
    </tbody>
 </table>
+</div>
+</div>
+
 {% endblock %}
 

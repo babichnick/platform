@@ -8,12 +8,13 @@
 
 
    <link href="{% static '/bootstrap/css/bootstrap.css'%}" rel="stylesheet">
-  {% block libraries %}
-     
-  {% endblock%}
-  {% block title %}<title>Local Library</title>{% endblock %}
+  {% block libraries %}{% endblock%}
+  
+  {% block title %}<title>Local</title>{% endblock %}
+
 </head>
 <body>
-  {% block content %}<!-- default content text (typically empty) -->{% endblock %}
+  {% block pageheader %}{% endblock %}
+  {% block content %}{% endblock %}
 </body>
 </html>
