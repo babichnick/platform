@@ -30,6 +30,18 @@
         }
 
 
+
+    table.tablesorter {
+    font-size: 12px;
+  }
+   .tablesorter-filter  {
+    font-size: 12px;
+  }
+
+    .wrapper {
+     overflow-y: auto;
+  }
+
     
    </style> 
 
@@ -96,7 +108,17 @@
         'form-control custom-select', 
         'form-control custom-select',
         'form-control custom-select'
-      ]
+      ],
+
+      filter_functions : {
+
+        5 : {
+          "< $10"      : function(e, n, f, i, $r, c, data) { return n < 10; },
+          "$10 - $100" : function(e, n, f, i, $r, c, data) { return n >= 10 && n <=100; },
+          "> $100"     : function(e, n, f, i, $r, c, data) { return n > 100; }
+        }
+
+      }
 
     }
   })
@@ -118,6 +140,7 @@
     <button type="button" class="reset btn btn-outline-dark btn-sm" data-column="0" data-filter="">Reset filters</button>
   </div> 
   <div class="row"> 
+    <div class="wrapper">
 <table id="toolstable" class="table table-bordered table-hover">
  <thead class="thead-dark">
 	<tr style="text-align:center">
@@ -125,8 +148,8 @@
 		<th scope="col" style="min-width: 200px;" data-placeholder="Try Mac, Windows, Linux, etc">Platform</th>
 		<th scope="col" class="text-nowrap filter-select filter-exact" data-placeholder="-">Works Offline</th>
 		<th scope="col" class="filter-select filter-exact" data-placeholder="-">Free</th>
-		<th scope="col" data-placeholder="Try <9.99">Subsription</th>
-		<th scope="col" data-placeholder="Try <99">Purchase</th>
+		<th scope="col" data-placeholder="Select a filter">Subsription</th>
+		<th scope="col" data-placeholder="Select a filter">Purchase</th>
     <th scope="col" class="filter-select filter-exact" data-placeholder="-">Design</th>
     <th scope="col" class="filter-select filter-exact" data-placeholder="-">Artboards</th>
     <th scope="col" class="filter-select filter-exact" data-placeholder="-">Symbols</th>
@@ -178,6 +201,7 @@
    {% endfor %}
    </tbody>
 </table>
+</div>
 </div>
 </div>
 
