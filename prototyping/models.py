@@ -20,8 +20,8 @@ class Tool(models.Model):
 
    #price
    free = models.BooleanField(default = False, help_text="has a free version")
-   cost_subscription = models.PositiveSmallIntegerField(default=1987, help_text="cheapest monthly payment")
-   cost_purchase = models.PositiveSmallIntegerField(default=1987, help_text="one time cost")
+   cost_subscription = models.PositiveSmallIntegerField(null=True, blank=True, help_text="cheapest monthly payment")
+   cost_purchase = models.PositiveSmallIntegerField(null=True, blank=True, help_text="one time cost")
 
    works_offline = models.BooleanField(default = False, help_text="Tool doesn't require internet connection")
 

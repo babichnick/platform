@@ -111,9 +111,16 @@
       ],
 
       filter_functions : {
+        
+        4 : {
+          "< $10"      : function(e, n, f, i, $r, c, data) { return n >= 1 && n < 10; },
+          "$10 - $25" : function(e, n, f, i, $r, c, data) { return n >= 10 && n <=25; },
+          "> $25"     : function(e, n, f, i, $r, c, data) { return n > 25; }
+        },
 
+	      
         5 : {
-          "< $10"      : function(e, n, f, i, $r, c, data) { return n < 10; },
+          "< $10"      : function(e, n, f, i, $r, c, data) { return n>= 1 && n < 10; },
           "$10 - $100" : function(e, n, f, i, $r, c, data) { return n >= 10 && n <=100; },
           "> $100"     : function(e, n, f, i, $r, c, data) { return n > 100; }
         }
@@ -179,8 +186,8 @@
 		</td>
 		<td style="text-align:center">{% if tool.works_offline %} {% include "worksoffline.html" %} {% endif %}</td>
 		<td style="text-align:center">{% if tool.free %} {% include "checkmark.html" %} {% endif %}</td>
-		<td>{{ tool.cost_subscription }}</td>
-		<td>{{ tool.cost_purchase }}</td>
+		<td>{% if tool.cost_subscription == None %}{% else %}{{ tool.cost_subscription }}{% endif %}</td>
+		<td>{% if tool.cost_purchase == None %}{% else %}{{ tool.cost_purchase }}{% endif %}</td>
 
 		<td style="text-align:center">{% if tool.design %} {% include "checkmark.html" %} {% endif %}</td>
                 <td style="text-align:center">{% if tool.artboards %} {% include "checkmark.html" %} {% endif %}</td>
