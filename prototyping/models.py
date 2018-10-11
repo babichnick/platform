@@ -27,6 +27,10 @@ class Tool(models.Model):
 
    last_updated = models.DateField(default='1987-06-03')
 
+   #pros & cons
+   pros = models.TextField(default = "")
+   cons = models.TextField(default = "")
+
    #platform
    availablefor_web = models.BooleanField(default = False, help_text="Tool has a web version")
    availablefor_mac = models.BooleanField(default = False, help_text="Tool has a Mac version")

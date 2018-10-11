@@ -1,7 +1,92 @@
-{% extends "base_generic.html" %}
+{% extends "regular_page.html" %}
+{% load static %}
 
 {% block content %}
   
- <h1>{{ tool.name }}</h1>
+<div class="container singletool">
+
+
+  <div class="row justify-content-start"> 
+  <div class="col">
+  <div class="media">
+    <span class="media-left">
+
+    <img src="{% get_media_prefix %}{{ tool.logo }}" width="50px">
+   </span>
+    <div class="media-body">
+   <h1 style="padding-left:20px">{{ tool.name}}</h1>
+    </div>
+   </div>
+   </div>
+    </div>
+   
+   <div class="row" style="padding-top:20px">
+      <div class="col-8">
+   <table class="table table-hover table-sm">
+  <tbody>
+    <tr>
+      <th scope="row">Cost</th>
+      <td>Prices range from $0 -$199 a month depending on your need</td>
+    </tr>
+    <tr>
+      <th scope="row">Platform</th>
+      <td>Web, Mac, Windows</td>
+    </tr>
+    <tr>
+      <th scope="row">Ideal for</th>
+      <td>Web, Mobile</td>
+    </tr>
+  </tbody>
+</table>
+</div>
+</div>
+   
+   
+    <div class="row justify-content-start" style="padding-top:20px"> 
+	<div class="col-8">
+     {{ tool.description|linebreaks}}
+   <img src="shot.png" class="img-fluid" width="500px"alt="">
+   </div>
+   </div>
+   
+   <div class="row justify-content-start" style="padding-top:20px"> 
+	<div class="col-8">
+	
+	
+	<h4>Pros</h4>
+	
+<table class="table table-hover table-sm">
+  <tbody>
+  	{% for o in tool_pros %}
+    <tr>
+      <th scope="row">{% include "pros.html" %}
+
+</th>
+      <td>{{ o }}</td>
+    </tr>
+    {% endfor %}
+  </tbody>
+</table>
+	
+<h4>Cons</h4>
+
+	<table class="table table-hover table-sm">
+  <tbody>
+  	{% for o in tool_cons %}
+    <tr>
+      <th scope="row">{% include "cons.html" %}
+
+</th>
+      <td>{{ o }}</td>
+    </tr>
+    {% endfor %}
+  </tbody>
+</table>
+	
+
+    </div>
+   </div>
+   
+</div>
  
 {% endblock %}
