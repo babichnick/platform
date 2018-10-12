@@ -1,7 +1,7 @@
+import os, time, datetime, uuid
 from django.db import models 
 from taggit.managers import TaggableManager
-
-import datetime
+from django.utils.deconstruct import deconstructible
 
 DEFAULT = 'nologo.jpg'
 
@@ -41,6 +41,34 @@ class Tool(models.Model):
  
    def __str__(self):
         return "%s" % self.name
+
+
+class ToolImage(models.Model):
+
+
+    @deconstructible
+    class PathAndRename(object):
+
+        def __init__(self, sub_path):
+            self.path = sub_path
+
+        def __call__(self, instance, filename):
+            # eg: filename = 'my uploaded file.jpg'
+            ext = filename.split('.')[-1]  #eg: '.jpg'
+            uid = uuid.uuid4().hex[:10]    #eg: '567ae32f97'
+
+            # eg: 'my-uploaded-file'
+            new_name = '-'.join(filename.replace('.%s' % ext, '').split())
+
+            # eg: 'my-uploaded-file_64c942aa64.jpg'
+            renamed_filename = '%(new_name)s_%(uid)s.%(ext)s' % {'new_name': new_name, 'uid': uid, 'ext': ext}
+
+            # eg: 'images/2017/01/29/my-uploaded-file_64c942aa64.jpg'
+            return os.path.join(self.path, renamed_filename)
+
+
+    tool = models.ForeignKey(Tool, related_name='images', on_delete=models.CASCADE)
+    image = models.ImageField(upload_to=PathAndRename('toolimage/'))
 
 class PrototypingTool(Tool):
    #features

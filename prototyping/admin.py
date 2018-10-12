@@ -1,16 +1,24 @@
-from prototyping.models import Tool, PrototypingTool, Author, Category, Publication, City, Conference
+from prototyping.models import Tool, ToolImage, PrototypingTool, Author, Category, Publication, City, Conference
 from django.contrib import admin
 
 class CategoryAdmin(admin.ModelAdmin):
     list_display = ('name',)
 
+
+
+class ToolImageInline(admin.TabularInline):
+    model = ToolImage
+    extra = 3
+
 class ToolAdmin(admin.ModelAdmin):
     list_display = ('name', 'published')
     list_filter = ['published']
+    inlines = [ ToolImageInline, ] 
 
 class PrototypingToolAdmin(admin.ModelAdmin):
     list_display = ('name','published')
     list_filter = ['published']
+    inlines = [ ToolImageInline, ] 
     #exclude = ('abbreviation', 'name', 'description', 'logo', 'website', 'published', 'free', 'cost_subscription', 'cost_purchase', 'works_offline', 'last_updated', 'availablefor_web', 'availablefor_mac', 'availablefor_windows', 'availablefor_linux', 'availablefor_ios', 'availablefor_android',)
 
 class AuthorAdmin(admin.ModelAdmin):
