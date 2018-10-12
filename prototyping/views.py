@@ -36,10 +36,12 @@ def prototyping(request):
 
 def tool(request, slug):
     tool = Tool.objects.get(slug=slug)
+    tool_image_list = tool.images.all()
     tool_pros = tool.pros.split("|")
     tool_cons = tool.cons.split("|")
     context = {
                  'tool': tool,
+                 'tool_images': tool_image_list,
                  'tool_pros': tool_pros,
                  'tool_cons': tool_cons,
                }
