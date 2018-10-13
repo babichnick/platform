@@ -184,12 +184,21 @@
         <tr>
 		<td class="first-col text-nowrap"><img src="{% get_media_prefix %}{{ tool.logo }}" width="36px"> {{ tool.name }}</td>
 		<td>
+
+  <img src="{% get_media_prefix %}pixel.png" alt="{% if tool.availablefor_web %}web {% endif %}
+                                        {% if tool.availablefor_mac %}mac {% endif %}
+                                        {% if tool.availablefor_windows %}windows {% endif %}
+                                        {% if tool.availablefor_linux %}linux {% endif %}
+                                        {% if tool.availablefor_ios %}ios {% endif %}
+                                        {% if tool.availablefor_android %}android {% endif %}">
+
 			{% if tool.availablefor_web %}  {% include "web.html" %} {% endif %}
 			{% if tool.availablefor_mac %} {% include "mac.html" %}  {% endif %}
 			{% if tool.availablefor_windows %} {% include "windows.html" %} {% endif %}
 			{% if tool.availablefor_linux %} {% include "linux.html" %} {% endif %}
 			{% if tool.availablefor_ios %} {% include "ios.html" %} {% endif %}
 			{% if tool.availablefor_android %} {% include "android.html" %} {% endif %}
+
 		</td>
 		<td style="text-align:center">{% if tool.works_offline %} {% include "worksoffline.html" %} {% endif %}</td>
 		<td style="text-align:center">{% if tool.free %} {% include "checkmark.html" %} {% endif %}</td>
