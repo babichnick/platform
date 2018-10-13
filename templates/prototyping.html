@@ -69,6 +69,13 @@
     widthFixed: true,
 	  debug: true,
 
+    textExtraction:function(s){
+        if($(s).find('img').length == 0)
+            return $(s).text();
+        else
+            return $(s).find('img').attr('alt');
+    },
+
  
     widgets : [ "columns","zebra", "filter", "stickyHeaders" ],
 
