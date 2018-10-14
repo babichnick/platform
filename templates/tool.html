@@ -9,7 +9,24 @@
 li{
    margin:0 0 10px 0;   
 }
+
+a.dotted{
+  border-bottom: 1px dashed #999;
+  text-decoration: none; 
+}
+
+
 </style>
+
+<script src="{% static '/jquery/jquery-latest.js'%}"></script>
+<script src="{% static '/bootstrap/js/bootstrap.bundle.min.js'%}"></script>
+
+
+    <script>
+     $(document).ready(function(){
+     $('[data-toggle="tooltip"]').tooltip();
+   });
+   </script>
 
 {% endblock%}
 {% block content %}
@@ -127,27 +144,26 @@ li{
     <div class="row">
     <div class="col-6">
 <ul class="fa-ul">
-  {% if tool.design %}<li><i class="fa-li fa fa-check"></i>Design</li>{% else %}<li class="text-muted"><i class="fa-li fa fa-times"></i>Design</li>{% endif %}
-  {% if tool.artboards %}<li><i class="fa-li fa fa-check"></i>Arboards</li>{% else %}<li class="text-muted"><i class="fa-li fa fa-times"></i>Arboards</li>{% endif %}
-  {% if tool.symbols %}<li><i class="fa-li fa fa-check"></i>Symbols</li>{% else %}<li class="text-muted"><i class="fa-li fa fa-times"></i>Symbols</li>{% endif %}
-  {% if tool.responsive %}<li><i class="fa-li fa fa-check"></i>Responsive</li>{% else %}<li class="text-muted"><i class="fa-li fa fa-times"></i>Responsive</li>{% endif %}
-  {% if tool.pen_tool %}<li><i class="fa-li fa fa-check"></i>Pen</li>{% else %}<li class="text-muted"><i class="fa-li fa fa-times"></i>Pen</li>{% endif %}
-  {% if tool.hotspots %}<li><i class="fa-li fa fa-check"></i>Hotspots</li>{% else %}<li class="text-muted"><i class="fa-li fa fa-times"></i>Hotspots</li>{% endif %}
-  {% if tool.hotspots %}<li><i class="fa-li fa fa-check"></i>Animations</li>{% else %}<li class="text-muted"><i class="fa-li fa fa-times"></i>Animations</li>{% endif %}
-  {% if tool.transitions %}<li><i class="fa-li fa fa-check"></i>Transitions</li>{% else %}<li class="text-muted"><i class="fa-li fa fa-times"></i>Transitions</li>{% endif %}
+  {% if tool.design %}<li><i class="fa-li fa fa-check">{% else %}<li class="text-muted"><i class="fa-li fa fa-times">{% endif %}</i><a data-toggle="tooltip" title="App can design from scratch" data-placement="bottom" class="dotted">Design</a></li>
+  {% if tool.artboards %}<li><i class="fa-li fa fa-check">{% else %}<li class="text-muted"><i class="fa-li fa fa-times">{% endif %}</i><a data-toggle="tooltip" title="Multiple visible artboards" data-placement="bottom" class="dotted">Artboards</a></li>
+  {% if tool.symbols %}<li><i class="fa-li fa fa-check">{% else %}<li class="text-muted"><i class="fa-li fa fa-times">{% endif %}</i><a data-toggle="tooltip" title="Document-wide master symbols" data-placement="bottom" class="dotted">Symbols</a></li>
+  {% if tool.responsive %}<li><i class="fa-li fa fa-check">{% else %}<li class="text-muted"><i class="fa-li fa fa-times">{% endif %}</i><a data-toggle="tooltip" title="Dynamically resizing groups" data-placement="bottom" class="dotted">Responsive</a></li>
+  {% if tool.pen_tool %}<li><i class="fa-li fa fa-check">{% else %}<li class="text-muted"><i class="fa-li fa fa-times">{% endif %}</i><a data-toggle="tooltip" title="Drawing lines and objects" data-placement="bottom" class="dotted">Pen tool</a></li>
+  {% if tool.hotspots %}<li><i class="fa-li fa fa-check">{% else %}<li class="text-muted"><i class="fa-li fa fa-times">{% endif %}</i><a data-toggle="tooltip" title="Hotspots" data-placement="bottom" class="dotted">Hotspots</a></li>
+  {% if tool.animations %}<li><i class="fa-li fa fa-check">{% else %}<li class="text-muted"><i class="fa-li fa fa-times">{% endif %}</i><a data-toggle="tooltip" title="Individual animations and microinteractions" data-placement="bottom" class="dotted">Animations</a></li>
+  {% if tool.transitions %}<li><i class="fa-li fa fa-check">{% else %}<li class="text-muted"><i class="fa-li fa fa-times">{% endif %}</i><a data-toggle="tooltip" title="Animated transitions between screens" data-placement="bottom" class="dotted">Transitions</a></li>
 </ul>
   </div>
 
 <div class="col-6">
 <ul class="fa-ul">
- {% if tool.analytics %}<li><i class="fa-li fa fa-check"></i>Analytics</li>{% else %}<li class="text-muted"><i class="fa-li fa fa-times"></i>Analytics</li>{% endif %}
- {% if tool.heatmaps %}<li><i class="fa-li fa fa-check"></i>Heatmaps</li>{% else %}<li class="text-muted"><i class="fa-li fa fa-times"></i>Heatmaps</li>{% endif %}
- {% if tool.sensors %}<li><i class="fa-li fa fa-check"></i>Sensors</li>{% else %}<li class="text-muted"><i class="fa-li fa fa-times"></i>Sensors</li>{% endif %}
- {% if tool.handoff %}<li><i class="fa-li fa fa-check"></i>Handoff</li>{% else %}<li class="text-muted"><i class="fa-li fa fa-times"></i>Handoff</li>{% endif %}
- {% if tool.export_assets %}<li><i class="fa-li fa fa-check"></i>Export Assets</li>{% else %}<li class="text-muted"><i class="fa-li fa fa-times"></i>Export Assets</li>{% endif %}
- {% if tool.collaboration %}<li><i class="fa-li fa fa-check"></i>Collaboration</li>{% else %}<li class="text-muted"><i class="fa-li fa fa-times"></i>Collaboration</li>{% endif %}
- {% if tool.comments %}<li><i class="fa-li fa fa-check"></i>Comments</li>{% else %}<li class="text-muted"><i class="fa-li fa fa-times"></i>Comments</li>{% endif %}
-
+ {% if tool.analytics %}<li><i class="fa-li fa fa-check">{% else %}<li class="text-muted"><i class="fa-li fa fa-times">{% endif %}</i><a data-toggle="tooltip" title="Can track events when testing" data-placement="bottom" class="dotted">Analytics</a></li>
+ {% if tool.heatmaps %}<li><i class="fa-li fa fa-check">{% else %}<li class="text-muted"><i class="fa-li fa fa-times">{% endif %}</i><a data-toggle="tooltip" title="Generate heatmaps from user testing" data-placement="bottom" class="dotted">Heatmaps</a></li>
+ {% if tool.sensors %}<li><i class="fa-li fa fa-check">{% else %}<li class="text-muted"><i class="fa-li fa fa-times">{% endif %}</i><a data-toggle="tooltip" title="Utilize device sensors" data-placement="bottom" class="dotted">Sensors</a></li>
+ {% if tool.handoff %}<li><i class="fa-li fa fa-check">{% else %}<li class="text-muted"><i class="fa-li fa fa-times">{% endif %}</i><a data-toggle="tooltip" title="Generate specs automatically for developers" data-placement="bottom" class="dotted">Handoff</a></li>
+ {% if tool.export_assets %}<li><i class="fa-li fa fa-check">{% else %}<li class="text-muted"><i class="fa-li fa fa-times">{% endif %}</i><a data-toggle="tooltip" title="CSS/XML styles can be exported" data-placement="bottom" class="dotted">Export Assets</a></li>
+ {% if tool.collaboration %}<li><i class="fa-li fa fa-check">{% else %}<li class="text-muted"><i class="fa-li fa fa-times">{% endif %}</i><a data-toggle="tooltip" title="Simultaneous editing" data-placement="bottom" class="dotted">Collaboration</a></li>
+ {% if tool.comments %}<li><i class="fa-li fa fa-check">{% else %}<li class="text-muted"><i class="fa-li fa fa-times">{% endif %}</i><a data-toggle="tooltip" title="Team members can leave comments" data-placement="bottom" class="dotted">Comments</a></li>
  </ul>
 </div>
 </div>
