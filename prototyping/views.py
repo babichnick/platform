@@ -34,8 +34,8 @@ def prototyping(request):
     context = {'prototyping_tools': prototyping_tools}
     return render(request, 'prototyping.html', context = context)
 
-def tool(request, slug):
-    tool = Tool.objects.get(slug=slug)
+def prototypingtool(request, slug):
+    tool = PrototypingTool.objects.get(slug=slug)
     tool_image_list = tool.images.all()
     tool_pros = tool.pros.split("|")
     tool_cons = tool.cons.split("|")
