@@ -81,6 +81,7 @@ class PrototypingTool(Tool):
    pen_tool = models.BooleanField(default = False, help_text="Draw paths")
    animations = models.BooleanField(default = False, help_text="Individual animations and microinteractions")
    transitions = models.BooleanField(default = False, help_text="Animation between screens")
+   voice = models.BooleanField(default = False, help_text="Prototyping for voice")
 
    #testing
    analytics = models.BooleanField(default = False, help_text="Can track events when testing")

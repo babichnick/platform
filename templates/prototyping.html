@@ -112,6 +112,7 @@
         'form-control custom-select',
         'form-control custom-select',
         'form-control custom-select',
+        'form-control custom-select',
         'form-control custom-select', 
         'form-control custom-select',
         'form-control custom-select'
@@ -172,6 +173,7 @@
     <th scope="col" class="filter-select filter-exact" data-placeholder="-">Hotspots</th>
     <th scope="col" class="filter-select filter-exact" data-placeholder="-">Animations</th>
     <th scope="col" class="filter-select filter-exact" data-placeholder="-">Transitions</th>
+    <th scope="col" class="filter-select filter-exact" data-placeholder="-">Voice</th>
     <th scope="col" class="filter-select filter-exact" data-placeholder="-">Analytics</th>
     <th scope="col" class="filter-select filter-exact" data-placeholder="-">Heatmaps</th>
     <th scope="col" class="filter-select filter-exact" data-placeholder="-">Sensors</th>
@@ -212,7 +214,8 @@
                 <td style="text-align:center">{% if tool.responsive %} {% include "checkmark.html" %} {% endif %}</td>
                 <td style="text-align:center">{% if tool.hotspots %} {% include "checkmark.html" %} {% endif %}</td>
                 <td style="text-align:center">{% if tool.animations %} {% include "checkmark.html" %} {% endif %}</td>
-		<td style="text-align:center">{% if tool.transitions %} {% include "checkmark.html" %} {% endif %}</td>
+		            <td style="text-align:center">{% if tool.transitions %} {% include "checkmark.html" %} {% endif %}</td>
+                <td style="text-align:center">{% if tool.voice %} {% include "checkmark.html" %} {% endif %}</td>
 
                 <td style="text-align:center">{% if tool.analytics %} {% include "checkmark.html" %} {% endif %}</td>
                 <td style="text-align:center">{% if tool.heatmaps %} {% include "checkmark.html" %} {% endif %}</td>

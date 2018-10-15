@@ -170,6 +170,7 @@ i.fa-check {
 
 <div class="col-6">
 <ul class="fa-ul">
+ {% if tool.voice %}<li><i class="fa-li fa fa-check">{% else %}<li class="text-muted"><i class="fa-li fa fa-times">{% endif %}</i><a data-toggle="tooltip" title="Prototyping for voice" data-placement="bottom" class="dotted">Voice</a></li> 
  {% if tool.analytics %}<li><i class="fa-li fa fa-check">{% else %}<li class="text-muted"><i class="fa-li fa fa-times">{% endif %}</i><a data-toggle="tooltip" title="Can track events when testing" data-placement="bottom" class="dotted">Analytics</a></li>
  {% if tool.heatmaps %}<li><i class="fa-li fa fa-check">{% else %}<li class="text-muted"><i class="fa-li fa fa-times">{% endif %}</i><a data-toggle="tooltip" title="Generate heatmaps from user testing" data-placement="bottom" class="dotted">Heatmaps</a></li>
  {% if tool.sensors %}<li><i class="fa-li fa fa-check">{% else %}<li class="text-muted"><i class="fa-li fa fa-times">{% endif %}</i><a data-toggle="tooltip" title="Utilize device sensors" data-placement="bottom" class="dotted">Sensors</a></li>
