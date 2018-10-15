@@ -103,6 +103,7 @@
         'form-control',
         'form-control',
         'form-control custom-select',
+        'form-control',
         'form-control custom-select',
         'form-control custom-select',
         'form-control custom-select', 
@@ -166,6 +167,7 @@
 		<th scope="col" data-placeholder="Select a filter">Subsription</th>
 		<th scope="col" data-placeholder="Select a filter">Purchase</th>
     <th scope="col" class="filter-select filter-exact" data-placeholder="-">Design</th>
+    <th scope="col" style="min-width: 200px;" data-placeholder="Try Photoshop, Sketch, Dropbox, etc">Import</th>
     <th scope="col" class="filter-select filter-exact" data-placeholder="-">Artboards</th>
     <th scope="col" class="filter-select filter-exact" data-placeholder="-">Symbols</th>
     <th scope="col" class="text-nowrap filter-select filter-exact" data-placeholder="-">Pen Tool</th>
@@ -208,6 +210,18 @@
 		<td>{% if tool.cost_purchase == None %}{% else %}{{ tool.cost_purchase }}{% endif %}</td>
 
 		<td style="text-align:center">{% if tool.design %} {% include "checkmark.html" %} {% endif %}</td>
+    <td>
+    
+     <img src="{% get_media_prefix %}pixel.png" alt="{% if tool.import_from_photoshop %}photoshop {% endif %}
+                                        {% if tool.import_from_sketch %}sketch {% endif %}
+                                        {% if tool.import_from_dropbox %}dropbox {% endif %}
+                                        {% if tool.import_from_mobile_camera %}mobile camera {% endif %}">
+      {% if tool.import_from_photoshop %}  {% include "importphotoshop.html" %} {% endif %}
+      {% if tool.import_from_sketch %} {% include "importsketch.html" %}  {% endif %}
+      {% if tool.import_from_dropbox %} {% include "importdropbox.html" %} {% endif %}
+      {% if tool.import_from_mobile_camera %} {% include "importmobilecamera.html" %} {% endif %}
+
+    </td>
                 <td style="text-align:center">{% if tool.artboards %} {% include "checkmark.html" %} {% endif %}</td>
                 <td style="text-align:center">{% if tool.symbols %} {% include "checkmark.html" %} {% endif %}</td>
                 <td style="text-align:center">{% if tool.pen_tool %} {% include "checkmark.html" %} {% endif %}</td>

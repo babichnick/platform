@@ -94,6 +94,11 @@ class PrototypingTool(Tool):
    collaboration = models.BooleanField(default = False, help_text="Simultaneous editing")
    comments = models.BooleanField(default = False, help_text= "Team members can leave comments")
 
+   import_from_photoshop = models.BooleanField(default = False, help_text="Import from Adobe Photoshop")
+   import_from_sketch = models.BooleanField(default = False, help_text="Import from Sketch")
+   import_from_dropbox = models.BooleanField(default = False, help_text="Import from Dropbox")
+   import_from_mobile_camera = models.BooleanField(default = False, help_text="Import from Mobile Camera")
+
    def __str__(self):
         return "%s" % self.name
 
