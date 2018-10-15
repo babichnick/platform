@@ -6,6 +6,26 @@ from django.utils.deconstruct import deconstructible
 DEFAULT = 'nologo.jpg'
 
 
+@deconstructible
+class PathAndRename(object):
+
+    def __init__(self, sub_path):
+        self.path = sub_path
+
+    def __call__(self, instance, filename):
+        # eg: filename = 'my uploaded file.jpg'
+        ext = filename.split('.')[-1]  #eg: '.jpg'
+        uid = uuid.uuid4().hex[:10]    #eg: '567ae32f97'
+
+        # eg: 'my-uploaded-file'
+        new_name = '-'.join(filename.replace('.%s' % ext, '').split())
+
+        # eg: 'my-uploaded-file_64c942aa64.jpg'
+        renamed_filename = '%(new_name)s_%(uid)s.%(ext)s' % {'new_name': new_name, 'uid': uid, 'ext': ext}
+
+        # eg: 'images/2017/01/29/my-uploaded-file_64c942aa64.jpg'
+        return os.path.join(self.path, renamed_filename)
+
 class Tool(models.Model):
    #abbreviation = models.CharField(max_length=50, help_text="Abbreviation of the app", default="", unique=True)
    name = models.CharField(max_length=100, help_text="name of app")
@@ -23,6 +43,9 @@ class Tool(models.Model):
    cost_subscription = models.PositiveSmallIntegerField(null=True, blank=True, help_text="cheapest monthly payment")
    cost_purchase = models.PositiveSmallIntegerField(null=True, blank=True, help_text="one time cost")
 
+   cost_text = models.CharField(max_length=300, help_text="Cost text information", default="")
+   ideal_for = models.CharField(max_length=300, help_text="What this tools is great for", default="")
+   
    works_offline = models.BooleanField(default = False, help_text="Tool doesn't require internet connection")
 
    last_updated = models.DateField(default='1987-06-03')
@@ -44,28 +67,6 @@ class Tool(models.Model):
 
 
 class ToolImage(models.Model):
-
-
-    @deconstructible
-    class PathAndRename(object):
-
-        def __init__(self, sub_path):
-            self.path = sub_path
-
-        def __call__(self, instance, filename):
-            # eg: filename = 'my uploaded file.jpg'
-            ext = filename.split('.')[-1]  #eg: '.jpg'
-            uid = uuid.uuid4().hex[:10]    #eg: '567ae32f97'
-
-            # eg: 'my-uploaded-file'
-            new_name = '-'.join(filename.replace('.%s' % ext, '').split())
-
-            # eg: 'my-uploaded-file_64c942aa64.jpg'
-            renamed_filename = '%(new_name)s_%(uid)s.%(ext)s' % {'new_name': new_name, 'uid': uid, 'ext': ext}
-
-            # eg: 'images/2017/01/29/my-uploaded-file_64c942aa64.jpg'
-            return os.path.join(self.path, renamed_filename)
-
 
     tool = models.ForeignKey(Tool, related_name='images', on_delete=models.CASCADE)
     image = models.ImageField(upload_to=PathAndRename('toolimage/'))

@@ -15,6 +15,14 @@ a.dotted{
   text-decoration: none; 
 }
 
+i.fa-times {
+  color:red;
+}
+
+i.fa-check {
+  color:green;
+}
+
 
 </style>
 
@@ -54,15 +62,20 @@ a.dotted{
   <tbody>
     <tr>
       <th scope="row">Cost</th>
-      <td>Prices range from $0 -$199 a month depending on your need</td>
+      <td>{{ tool.cost_text }}</td>
     </tr>
     <tr>
       <th scope="row">Platform</th>
-      <td>Web, Mac, Windows</td>
+      <td>{% if tool.availablefor_web %}Web {% endif %}
+                                        {% if tool.availablefor_mac %}Mac {% endif %}
+                                        {% if tool.availablefor_windows %}Windows {% endif %}
+                                        {% if tool.availablefor_linux %}Linux {% endif %}
+                                        {% if tool.availablefor_ios %}iOs {% endif %}
+                                        {% if tool.availablefor_android %}Android {% endif %}</td>
     </tr>
     <tr>
       <th scope="row">Ideal for</th>
-      <td>Web, Mobile</td>
+      <td>{{ tool.ideal_for }}</td>
     </tr>
   </tbody>
 </table>
