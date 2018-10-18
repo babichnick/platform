@@ -22,8 +22,9 @@ from prototyping import views
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('', views.index, name='index'),
-    path('prototyping/', views.prototyping, name='prototyping'),
-    path('tool/prototyping/<str:slug>/' , views.prototypingtool),
+    path('compare/prototyping/', views.prototyping, name='prototyping'),
+    path('tools/' , views.alltools),
+    path('tools/prototyping/<str:slug>/' , views.prototypingtool),
     path('blog/', views.blog),
     path('blog/page<int:num>/', views.blog),
 ] + static(settings.STATIC_URL, document_root=settings.STATIC_ROOT)

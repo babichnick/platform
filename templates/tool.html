@@ -61,37 +61,14 @@ i.fa-check {
    </div>
     </div>
    
-   <div class="row" style="padding-top:20px">
-      <div class="col-12 col-md-8">
-   <table class="table table-hover table-sm">
-  <tbody>
-    <tr>
-      <th scope="row">Cost</th>
-      <td>{{ tool.cost_text }}</td>
-    </tr>
-    <tr>
-      <th scope="row">Platform</th>
-      <td>{% if tool.availablefor_web %}Web {% endif %}
-                                        {% if tool.availablefor_mac %}Mac {% endif %}
-                                        {% if tool.availablefor_windows %}Windows {% endif %}
-                                        {% if tool.availablefor_linux %}Linux {% endif %}
-                                        {% if tool.availablefor_ios %}iOs {% endif %}
-                                        {% if tool.availablefor_android %}Android {% endif %}</td>
-    </tr>
-    <tr>
-      <th scope="row">Ideal for</th>
-      <td>{{ tool.ideal_for }}</td>
-    </tr>
-  </tbody>
-</table>
-</div>
-</div>
-   
    
     <div class="row justify-content-start" style="padding-top:20px"> 
 	<div class="col-12 col-md-8">
      {{ tool.description|linebreaks}}
    </div>
+   <div class="col-12 col-md-4">
+    <a href="/compare/prototyping/" class="btn btn-outline-secondary" role="button" >Compare this tool</a>
+  </div>
    </div>
    
 {% if tool_images %}
@@ -106,7 +83,7 @@ i.fa-check {
         <li data-target="#carouselToolImages" data-slide-to="{{ forloop.counter0 }}"></li>
         {% endif %}
       {% endfor %}
-  </ol>
+  </ol> 
 
   <div class="carousel-inner">
   	{% for tool_image in tool_images %}
@@ -134,7 +111,31 @@ i.fa-check {
 
 {% endif %}
 
-
+ <div class="row" style="padding-top:20px">
+      <div class="col-12 col-md-8">
+   <table class="table table-hover table-sm">
+  <tbody>
+    <tr>
+      <th scope="row">Cost</th>
+      <td>{{ tool.cost_text }}</td>
+    </tr>
+    <tr>
+      <th scope="row">Platform</th>
+      <td>{% if tool.availablefor_web %}Web {% endif %}
+                                        {% if tool.availablefor_mac %}Mac {% endif %}
+                                        {% if tool.availablefor_windows %}Windows {% endif %}
+                                        {% if tool.availablefor_linux %}Linux {% endif %}
+                                        {% if tool.availablefor_ios %}iOs {% endif %}
+                                        {% if tool.availablefor_android %}Android {% endif %}</td>
+    </tr>
+    <tr>
+      <th scope="row">Ideal for</th>
+      <td>{{ tool.ideal_for }}</td>
+    </tr>
+  </tbody>
+</table>
+</div>
+</div>
 
    <div class="row justify-content-start" style="padding-top:20px"> 
 	<div class="col-12 col-md-8"> <!-- was col-12 col-md-8 -->

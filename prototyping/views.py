@@ -34,6 +34,11 @@ def prototyping(request):
     context = {'prototyping_tools': prototyping_tools}
     return render(request, 'prototyping.html', context = context)
 
+def alltools(request):
+    prototyping_tools = PrototypingTool.objects.filter(published=True)
+    context = {'prototyping_tools': prototyping_tools}
+    return render(request, 'tools_all.html', context = context)
+
 def prototypingtool(request, slug):
     tool = PrototypingTool.objects.get(slug=slug)
     tool_image_list = tool.images.all()
