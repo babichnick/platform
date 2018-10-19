@@ -33,6 +33,7 @@ class Tool(models.Model):
 
    description = models.TextField(default = "")
    logo = models.ImageField(default=DEFAULT, upload_to='protologo/')
+   thumb = models.ImageField(upload_to=PathAndRename('toolimage/'), blank=True, null=True)
    website = models.CharField(max_length=300, help_text="website address", default="http://")
 
    #published
