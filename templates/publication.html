@@ -22,9 +22,8 @@
 
   <div class="row justify-content-start"> 
   <div class="col">
+   <img src="{% get_media_prefix %}{{ publication.header_image }}" alt="{{ publication.title }}"> 
    <h1>{{ publication.title}}</h1>
-
-   
    <p>{{ publication.content|safe }}</p>
  </div>
    

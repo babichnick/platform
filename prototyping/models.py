@@ -142,6 +142,7 @@ class Publication(models.Model):
     slug = models.SlugField(max_length=200, default="",unique=True)
     tease = models.TextField()
     content = models.TextField(max_length=8000, default="")
+    header_image = models.ImageField(upload_to=PathAndRename('publicationimage/'), blank=True, null=True)
     
     status = models.IntegerField(choices=STATUS_CHOICES, default=1)
     
