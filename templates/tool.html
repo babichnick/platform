@@ -25,6 +25,9 @@ i.fa-check {
   color:green;
 }
 
+.postimage {
+   max-width: 250px;
+}
 
 </style>
 
@@ -197,11 +200,22 @@ i.fa-check {
 </div>
 </div>
 
-<div class="col-6">
+{% if publications %}
+<div class="row justify-content-start" style="padding-top:20px">
+<div class="col-12 col-md-8">
+  <h4>Latest updates for this tool:</h4>
   {%for pub in publications %}
-  <h1>{{ pub.title }}
+  <div class="clearfix border mt-2">
+   <img src="{% get_media_prefix %}{{ pub.header_image }}" alt="..." class="float-left mr-2 postimage">
+    <h5><a href="/publications/{{ pub.slug }}">{{ pub.title }}</a></h5>
+    <p>{{ pub.tease| truncatechars:300 }}</p>
+    <p><small class="text-muted">{{ pub.pub_date| date:"d M Y" }}</small></p>
+   </div>
   {% endfor %}
 </div>
+</div>
+{% else %}
+{% endif %}
 
 
 </div>
