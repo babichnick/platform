@@ -50,11 +50,14 @@ def alltools(request):
 def prototypingtool(request, slug):
     tool = PrototypingTool.objects.get(slug=slug)
     tool_image_list = tool.images.all()
+    publications_list = tool.publication_set.all()
+    publication_list_published = publications_list.filter(status=2)
     tool_pros = tool.pros.split("|")
     tool_cons = tool.cons.split("|")
     context = {
                  'tool': tool,
                  'tool_images': tool_image_list,
+                 'publications':publication_list_published,
                  'tool_pros': tool_pros,
                  'tool_cons': tool_cons,
                }
