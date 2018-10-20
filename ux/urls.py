@@ -25,6 +25,7 @@ urlpatterns = [
     path('compare/prototyping/', views.prototyping, name='prototyping'),
     path('tools/' , views.alltools),
     path('tools/prototyping/<str:slug>/' , views.prototypingtool),
+    path('publications/<str:slug>/' , views.publications),
     path('blog/', views.blog),
     path('blog/page<int:num>/', views.blog),
 ] + static(settings.STATIC_URL, document_root=settings.STATIC_ROOT)

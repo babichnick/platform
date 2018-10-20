@@ -1,4 +1,5 @@
 from django.core.paginator import EmptyPage, PageNotAnInteger, Paginator
+from django.http import Http404
 from django.shortcuts import render
 
 from .models import Tool, PrototypingTool, Publication
@@ -28,6 +29,13 @@ def index(request):
                 'tailpost': tail_post,
                 }
         return render(request, 'index.html', context=context)
+
+def publications(request,slug):
+    publication = Publication.objects.get(slug=slug)
+    if publication.status == 1:
+        raise Http404
+    context = {'publication': publication}
+    return render(request, 'publication.html', context = context)
 
 def prototyping(request):
     prototyping_tools = PrototypingTool.objects.filter(published=True)

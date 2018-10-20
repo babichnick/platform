@@ -26,6 +26,7 @@ class AuthorAdmin(admin.ModelAdmin):
 
 class PublicationAdmin(admin.ModelAdmin):
     list_display = ('title',)
+    list_filter = ['status']
 
 class CityAdmin(admin.ModelAdmin):
     list_diplay = ('title',)

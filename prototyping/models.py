@@ -139,7 +139,7 @@ class Publication(models.Model):
         get_latest_by = 'pub_date'
 
     title = models.CharField(max_length=500, default="")
-    slug = models.SlugField(max_length=200, default="")
+    slug = models.SlugField(max_length=200, default="",unique=True)
     tease = models.TextField()
     content = models.TextField(max_length=8000, default="")
     
