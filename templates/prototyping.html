@@ -3,6 +3,7 @@
 
 {% block libraries %}
 
+   <link href="{% static '/css/uxpro.css'%}" rel="stylesheet">
 
    <link rel="stylesheet" href="{% static '/css/theme.bootstrap_4.css'%}">
 
@@ -152,7 +153,7 @@
 
 {% block content %}
 
-<div class="container-fluid">
+<div class="container-fluid maincontainer">
 
  <div class="row justify-content-end">
     <button type="button" class="reset btn btn-outline-dark btn-sm" data-column="0" data-filter="">Reset filters</button>
@@ -188,7 +189,7 @@
    <tbody>
    {% for tool in prototyping_tools %}
         <tr>
-		<td class="first-col text-nowrap"><a href="/tool/prototyping/{{ tool.slug }}"><img src="{% get_media_prefix %}{{ tool.logo }}" width="36px"> {{ tool.name }}</a></td>
+		<td class="first-col text-nowrap"><a href="/tools/prototyping/{{ tool.slug }}"><img src="{% get_media_prefix %}{{ tool.logo }}" width="36px"> {{ tool.name }}</a></td>
 		<td>
 
   <img src="{% get_media_prefix %}pixel.png" alt="{% if tool.availablefor_web %}web {% endif %}
@@ -208,8 +209,8 @@
 		</td>
 		<td style="text-align:center">{% if tool.works_offline %} {% include "worksoffline.html" %} {% endif %}</td>
 		<td style="text-align:center">{% if tool.free %} {% include "checkmark.html" %} {% endif %}</td>
-		<td>{% if tool.cost_subscription == None %}{% else %}{{ tool.cost_subscription }}{% endif %}</td>
-		<td>{% if tool.cost_purchase == None %}{% else %}{{ tool.cost_purchase }}{% endif %}</td>
+		<td>{% if tool.cost_subscription == None %}{% else %}${{ tool.cost_subscription }}+{% endif %}</td>
+		<td>{% if tool.cost_purchase == None %}{% else %}${{ tool.cost_purchase }}{% endif %}</td>
 
 		<td style="text-align:center">{% if tool.design %} {% include "checkmark.html" %} {% endif %}</td>
     <td>
