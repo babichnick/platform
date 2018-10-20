@@ -3,11 +3,17 @@
 
 {% block title %}<title>Design Tools | UX Pro</title>{% endblock %}
 
+{% block libraries %}
+   <link href="{% static '/css/uxpro.css'%}" rel="stylesheet">
+
+    
+
+{% endblock%}
 
 {% block content %}
 
 
-<div class="container">
+<div class="container maincontainer">
 <div class="row">
  
  {% for tool in prototyping_tools %}
@@ -15,8 +21,8 @@
   <div class="card mb-4">
    <a href="/tools/prototyping/{{ tool.slug }}"><img class="card-img-top" src="{% get_media_prefix %}{{ tool.thumb }}" alt="{{ tool.name }}"></a>
     <div class="card-body">
-      <h5 class="card-title"><a href="/tools/prototyping/{{ tool.slug }}">{{tool.name}}</a></h5>
-      <p class="card-text">{{ tool.description|truncatechars:100 }}</p>
+      <h5 class="card-title toolcardtitle"><a href="/tools/prototyping/{{ tool.slug }}">{{tool.name}}</a></h5>
+      <p class="card-text toolcardbody">{{ tool.description|truncatechars:100 }}</p>
     </div>
   </div>
 </div>

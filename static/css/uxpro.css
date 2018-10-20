@@ -1,31 +1,19 @@
 @media (min-width: 992px) {
   body {
-    padding-top: 56px;
+    padding-top: 20px;
   }
 }
 
-body {
-  padding-top: 54px;
+.maincontainer {
+	padding-top: 30px;
 }
 
-.portfolio-item {
-  margin-bottom: 30px;
+.toolcardtitle {
+	font-size: 18px;
 }
 
-.navbar-brand
-{
-  font-size: 36px;
-}
-
-.headcardtitle 
-{
-   font-size: 30px;
-}
-
-.headcard {
-  border: none;
-}
-.headcard-item {
-  margin-bottom: 30px;
-}
+.toolcardbody {
+    font-size: 14px;
+    color: rgb(85, 85, 85);
+    line-height: 1.1rem;
 }
