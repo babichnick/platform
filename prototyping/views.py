@@ -2,7 +2,10 @@ from django.core.paginator import EmptyPage, PageNotAnInteger, Paginator
 from django.http import Http404
 from django.shortcuts import render
 
-from .models import Tool, PrototypingTool, Publication
+from .models import Tool, PrototypingTool, Publication, Contact
+
+from .forms import ContactForm
+from django.http import HttpResponseRedirect
 
 def index(request):
     publications_list = Publication.objects.all()#order_by('-pub_date')
@@ -64,7 +67,27 @@ def prototypingtool(request, slug):
     return render(request, 'tool.html', context = context)
 
 
+def contact_me(request):
+    # if this is a POST request we need to process the form data
+    if request.method == 'POST':
+        # create a form instance and populate it with data from the request:
+        form = ContactForm(request.POST)
+        # check whether it's valid:
+        if form.is_valid():
+            # process the data in form.cleaned_data as required
+            Contact.objects.create(**form.cleaned_data)
+            # redirect to a new URL:
+            return HttpResponseRedirect('/')
+
+    # if a GET (or any other method) we'll create a blank form
+    else:
+        form = ContactForm()
+
+    return render(request, 'contact.html', {'form': form})
+
+
 def blog(request, page=1):
     publications = Publication.objects.all()
     context = {'publications': publications }
     return render(request, 'blog.html', context=context)
+

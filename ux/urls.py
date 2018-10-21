@@ -28,6 +28,7 @@ urlpatterns = [
     path('publications/<str:slug>/' , views.publications),
     path('blog/', views.blog),
     path('blog/page<int:num>/', views.blog),
+    path('contact/' , views.contact_me),
 ] + static(settings.STATIC_URL, document_root=settings.STATIC_ROOT)
 
 urlpatterns += static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
