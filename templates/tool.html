@@ -3,11 +3,11 @@
 
 {% block opengraph %}
 <!-- Facebook OpenGraph" -->
-<meta property="og:url"           content="{{ request.get_full_path }}" />
+<meta property="og:url"           content="{{ request.get_host }}{{ request.get_full_path }}" />
 <meta property="og:type"          content="article" />
 <meta property="og:title"         content="{{tool.name}} | UX Pro" />
 <meta property="og:description"   content="{{ tool.description }}" />
-<meta property="og:image"         content="{% get_media_prefix %}{{ tool.logo }}" />
+<meta property="og:image"         content="{{ request.get_host }}{% get_media_prefix %}{{ tool.logo }}" />
 {% endblock%}
 
 {% block libraries %}
