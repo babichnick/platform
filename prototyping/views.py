@@ -1,6 +1,7 @@
 from django.core.paginator import EmptyPage, PageNotAnInteger, Paginator
 from django.http import Http404
 from django.shortcuts import render
+from django.core.mail import send_mail
 
 from .models import Tool, PrototypingTool, Publication, Contact
 
@@ -76,6 +77,14 @@ def contact_me(request):
         if form.is_valid():
             # process the data in form.cleaned_data as required
             Contact.objects.create(**form.cleaned_data)
+
+            subject = form.cleaned_data['full_name']
+            message = form.cleaned_data['message']
+            sender = 'hello@uxpro.cc'
+            recipients = ['nick@babich.biz']
+
+            send_mail(subject, message, sender, recipients)
+            
             # redirect to a new URL:
             return HttpResponseRedirect('/')
 
