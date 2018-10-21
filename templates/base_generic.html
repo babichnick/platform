@@ -3,9 +3,11 @@
 <html lang="en">
 <head>
  <!-- Required meta tags -->
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+   <meta charset="utf-8">
+   <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 
+   {% block opengraph %}
+   {% endblock %}
 
    <link href="{% static '/bootstrap/css/bootstrap.css'%}" rel="stylesheet">
 
@@ -21,7 +23,7 @@
 
   {% block libraries %}{% endblock%}
   
-  {% block title %}<title>Local</title>{% endblock %}
+  {% block title %}<title>UX Pro</title>{% endblock %}
 
 </head>
 <body>
