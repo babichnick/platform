@@ -35,7 +35,7 @@ class ConferenceAdmin(admin.ModelAdmin):
     list_diplay = ('title',)
 
 class ContactAdmin(admin.ModelAdmin):
-    list_diplay = ('full_name','email','created')
+    list_display = ('full_name','email','created')
 
 # Register your models here.
 admin.site.register(Tool, ToolAdmin)
