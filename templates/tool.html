@@ -142,10 +142,19 @@ i.fa-check {
                                         {% if tool.availablefor_ios %}iOs {% endif %}
                                         {% if tool.availablefor_android %}Android {% endif %}</td>
     </tr>
+    <th scope="row">Import assets from</th>
+        <td>{% if tool.import_from_photoshop %}Photoshop {% endif %}
+            {% if tool.import_from_sketch %}Sketch {% endif %}
+            {% if tool.import_from_dropbox %}Dropbox {% endif %}
+            {% if tool.import_from_mobile_camera %}Mobile camera {% endif %}
+        </td>
+    </tr>
     <tr>
       <th scope="row">Ideal for</th>
       <td>{{ tool.ideal_for }}</td>
     </tr>
+    <tr>
+
   </tbody>
 </table>
 </div>
