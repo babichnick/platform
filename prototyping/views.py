@@ -9,30 +9,29 @@ from .forms import ContactForm
 from django.http import HttpResponseRedirect
 
 def index(request):
-    publications_list = Publication.objects.all()#order_by('-pub_date')
+    publications_list_published = Publication.objects.filter(status=2)#order_by('-pub_date')
     
-
-    paginator = Paginator(publications_list, 14) # Show 14 latest publications
+    paginator = Paginator(publications_list_published, 12) #Show 12 latest publications
 
     page = request.GET.get('page')
     publications = paginator.get_page(page)
 
     
-    if page:
-        context = {'publications': publications }
-        return render(request, 'index_paginated.html', context=context)
-    else:
-        head_post = publications[0]
-        first_six_posts = publications[1:7]
-        second_six_posts = publications[7:13]
-        tail_post = publications[13]
-        context = {
-                'headpost': head_post,
-                'firstsixposts': first_six_posts,
-                'secondsixposts': second_six_posts,
-                'tailpost': tail_post,
-                }
-        return render(request, 'index.html', context=context)
+    #if page:
+    #    context = {'publications': publications }
+    #    return render(request, 'index_paginated.html', context=context)
+    #else:
+    #    head_post = publications[0]
+    #    first_six_posts = publications[1:7]
+    #    second_six_posts = publications[7:13]
+    #    tail_post = publications[13]
+    context = { 'publications': publications}
+    #            'firstsixposts': first_six_posts,
+    #            'secondsixposts': second_six_posts,
+    #            'tailpost': tail_post,
+
+
+    return render(request, 'index.html', context=context)
 
 def publications(request,slug):
     publication = Publication.objects.get(slug=slug)

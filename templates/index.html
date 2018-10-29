@@ -1,115 +1,44 @@
-{% extends "base_generic.html" %}
+{% extends "regular_page.html" %}
 {% load static %}
 
+
+
 {% block libraries %}
-<link href="{% static '/css/uxpro.css' %}" rel="stylesheet">
-{% endblock %}
+   <link href="{% static '/css/uxpro.css'%}" rel="stylesheet">
+
+   <script src="{% static '/jquery/jquery-latest.js'%}"></script>
+   <script src="{% static '/bootstrap/js/bootstrap.bundle.min.js'%}"></script>
+
+{% endblock%}
+
+{% block title %}<title>Design Tools | UX Pro</title>{% endblock %}
 
 {% block content %}
 
- <!-- Navigation -->
-    <nav class="navbar navbar-expand-lg navbar-light" style="background-color: #FFFFF;">
-      <div class="container">
-        <a class="navbar-brand" href="http://uxpro.cc/#">
-		<img src="./Local Library_files/logo.png" width="60" height="60" class="d-inline-block align-top" alt="">
-		Pro</a>
-        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
-          <span class="navbar-toggler-icon"></span>
-        </button>
-        <div class="collapse navbar-collapse" id="navbarResponsive">
-          <ul class="nav nav-pills ml-auto">
-            <!--<li class="nav-item active">
-              <a class="nav-link" href="#">Home
-                <span class="sr-only">(current)</span>
-              </a>
-            </li>-->
-            <li class="nav-item">
-              <a class="nav-link" href="http://uxpro.cc/prototyping/">Prototyping tools</a>
-            </li>
-             <li class="nav-item">
-              <a class="nav-link" href="http://uxpro.cc/#">Contact</a>
-            </li>
-          </ul>
-        </div>
-      </div>
-    </nav>
 
+<div class="container maincontainer">
+<div class="row">
+ 
+ {% for pub in publications %}
+ <div class="col-12 col-md-4 col-lg-3">
+  <div class="card mb-4">
+   <a href="/publications/{{ pub.slug }}"><img class="card-img-top" src="{% get_media_prefix %}{{ pub.header_image }}" alt="{{ pub.title }}"></a>
+    <div class="card-body">
+      <h6 class="card-subtitle toolcardsubtitle">{{ pub.pub_date| date:"d M Y" }}
 
-     <!-- Page Content -->
-    <div class="container">
+        {% if pub.tool is not None %}
+        | <a href="/tools/prototyping/{{ pub.tool.slug }}">{{ pub.tool.name }}
+        {% endif %}
 
-	 <div class="row">
-        <div class="col-12 headcard-item">
-          <div class="card bg-dark text-white headcard">
-            <img class="card-img" src="./Local Library_files/700x400" alt="Card image">
-            <div class="card-img-overlay d-flex flex-column justify-content-end">
-		    <h2 class="card-title headcardtitle">{{ headpost.title }}</h2>
-            </div>
-          </div>
-        </div>
-     </div>
-
-     <div class="row">
-          {% for card in firstsixposts %}
-	       <div class="col-lg-4 col-sm-6 portfolio-item">
-          <div class="card h-100">
-            <a href="http://uxpro.cc/#"><img class="card-img-top" src="./Local Library_files/700x400" alt=""></a>
-            <div class="card-body">
-              <h4 class="card-title">
-		      <a href="http://uxpro.cc/#">{{ card.title }}</a>
-              </h4>
-	      <p class="card-text">{{ card.content }}</p>
-            </div>
-          </div>
-        </div>
-         {% endfor %}
-     </div>
-      <!-- /.row -->
-
-       <div class="card text-center">
-     <div class="card-header">
-    Featured
-  </div>
-  <div class="card-body">
-    <h5 class="card-title">Special title treatment</h5>
-    <p class="card-text">With supporting text below as a natural lead-in to additional content.</p>
-    <a href="#" class="btn btn-primary">Go somewhere</a>
-  </div>
-  <div class="card-footer text-muted">
-    -
+      </h6>
+      <h5 class="card-title toolcardtitle"><a href="/publications/{{ pub.slug }}">{{ pub.title }}</a></h5>
+      <p class="card-text toolcardbody">{{ pub.tease| truncatechars:300 }}</p>
+    </div>
   </div>
 </div>
-   
-     <div class="row">
-          {% for card in secondsixposts %}
-               <div class="col-lg-4 col-sm-6 portfolio-item">
-          <div class="card h-100">
-            <a href="http://uxpro.cc/#"><img class="card-img-top" src="./Local Library_files/700x400" alt=""></a>
-            <div class="card-body">
-              <h4 class="card-title">
-                      <a href="http://uxpro.cc/#">{{ card.title }}</a>
-              </h4>
-              <p class="card-text">{{ card.content }}</p>
-            </div>
-          </div>
-        </div>
-         {% endfor %}
-     </div>
-      <!-- /.row -->
+{% endfor %}
 
-     <div class="row">
-        <div class="col-12 headcard-item">
-          <div class="card bg-dark text-white headcard">
-            <img class="card-img" src="./Local Library_files/700x400" alt="Card image">
-            <div class="card-img-overlay d-flex flex-column justify-content-end">
-                    <h2 class="card-title headcardtitle">{{ tailpost.title }}</h2>
-            </div>
-          </div>
-        </div>
-     </div>
- </div>
-
-
-
+</div>
+</div>
+ 
 {% endblock %}
-

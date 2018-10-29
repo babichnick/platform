@@ -17,3 +17,12 @@
     color: rgb(85, 85, 85);
     line-height: 1.1rem;
 }
+
+.toolcardsubtitle {
+    font-size: 10px;
+}
+
+.button-filter-uxpro {
+	margin-bottom: 10px;
+	margin-right: 10px;
+}
