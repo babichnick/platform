@@ -1,4 +1,4 @@
-from prototyping.models import Tool, ToolImage, PrototypingTool, Author, Category, Publication, City, Conference, Contact
+from prototyping.models import Tool, ToolImage,PublicationImage, PrototypingTool, Author, Category, Publication, City, Conference, Contact
 from django.contrib import admin
 
 class CategoryAdmin(admin.ModelAdmin):
@@ -8,6 +8,10 @@ class CategoryAdmin(admin.ModelAdmin):
 
 class ToolImageInline(admin.TabularInline):
     model = ToolImage
+    extra = 3
+
+class PublicationImageInline(admin.TabularInline):
+    model = PublicationImage
     extra = 3
 
 class ToolAdmin(admin.ModelAdmin):
@@ -27,6 +31,7 @@ class AuthorAdmin(admin.ModelAdmin):
 class PublicationAdmin(admin.ModelAdmin):
     list_display = ('title',)
     list_filter = ['status']
+    inlines = [ PublicationImageInline, ] 
 
 class CityAdmin(admin.ModelAdmin):
     list_diplay = ('title',)

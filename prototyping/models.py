@@ -170,6 +170,12 @@ class Publication(models.Model):
         return "/publications/%s/" % self.slug
 
 
+class PublicationImage(models.Model):
+
+    publication = models.ForeignKey(Publication, related_name='images', on_delete=models.CASCADE)
+    image = models.ImageField(upload_to=PathAndRename('publicationimage/'))
+
+
 class City(models.Model):
 
     REGION_CHOICES = (
