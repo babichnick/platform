@@ -24,7 +24,7 @@ urlpatterns = [
     path('', views.index, name='index'),
     path('compare/prototyping/', views.prototyping, name='prototyping'),
     path('tools/' , views.alltools),
-    path('tools/prototyping/<str:slug>/' , views.prototypingtool),
+    path('tools/<str:slug>/' , views.prototypingtool),
     path('publications/<str:slug>/' , views.publications),
     #path('blog/', views.blog),
     #path('blog/page<int:num>/', views.blog),

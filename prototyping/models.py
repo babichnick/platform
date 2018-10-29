@@ -36,6 +36,13 @@ class Tool(models.Model):
    thumb = models.ImageField(upload_to=PathAndRename('toolimage/'), blank=True, null=True)
    website = models.CharField(max_length=300, help_text="website address", default="http://")
 
+   TOOL_TYPE_CHOICES = (
+         (1, 'Prototyping'),
+         (2, 'Specification'), 
+    )
+
+   tool_type = models.IntegerField(choices=TOOL_TYPE_CHOICES, default=1)
+
    #published
    published = models.BooleanField(default = False, help_text="Tool is visible in the list")
 

@@ -27,7 +27,7 @@
       <h6 class="card-subtitle toolcardsubtitle">{{ pub.pub_date| date:"d M Y" }}
 
         {% if pub.tool is not None %}
-        | <a href="/tools/prototyping/{{ pub.tool.slug }}">{{ pub.tool.name }}
+        | <a href="/tools/{{ pub.tool.slug }}">{{ pub.tool.name }}
         {% endif %}
 
       </h6>

@@ -194,7 +194,7 @@
    <tbody>
    {% for tool in prototyping_tools %}
         <tr>
-		<td class="first-col text-nowrap"><a href="/tools/prototyping/{{ tool.slug }}"><img src="{% get_media_prefix %}{{ tool.logo }}" width="36px"> {{ tool.name }}</a></td>
+		<td class="first-col text-nowrap"><a href="/tools/{{ tool.slug }}"><img src="{% get_media_prefix %}{{ tool.logo }}" width="36px"> {{ tool.name }}</a></td>
 		<td>
 
   <img src="{% get_media_prefix %}pixel.png" alt="{% if tool.availablefor_web %}web {% endif %}
