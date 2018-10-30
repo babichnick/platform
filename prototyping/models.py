@@ -127,7 +127,8 @@ class Resource(models.Model):
          (3, 'Icons'), 
          (4, 'Mockups'),
          (5, 'Web Templates'),
-         (6, 'UI Kits'),    
+         (6, 'UI Kits'),
+         (7, 'Photos'),    
     )
 
    resource_type = models.IntegerField(choices=RESOURCE_TYPE_CHOICES)
