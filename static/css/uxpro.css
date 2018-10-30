@@ -116,3 +116,17 @@
 	margin-right: 10px;
 }
 
+.publication-h1 {
+	font-size: 32px;
+}
+
+.publication-author {
+	font-size: 14px; 
+	font-weight: 500;
+}
+
+.publication-content {
+	font-size: 18px;
+	line-height: 1.8em;
+	font-weight: 400;
+}
