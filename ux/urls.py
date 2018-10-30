@@ -26,6 +26,7 @@ urlpatterns = [
     path('tools/' , views.alltools),
     path('tools/<str:slug>/' , views.prototypingtool),
     path('publications/<str:slug>/' , views.publications),
+    path('resources/' , views.allresources),
     #path('blog/', views.blog),
     #path('blog/page<int:num>/', views.blog),
     path('contact/' , views.contact_me),

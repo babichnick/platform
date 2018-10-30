@@ -3,7 +3,7 @@ from django.http import Http404
 from django.shortcuts import render
 from django.core.mail import send_mail
 
-from .models import Tool, PrototypingTool, Publication, Contact
+from .models import Tool, PrototypingTool, Resource, Publication, Contact
 
 from .forms import ContactForm
 from django.http import HttpResponseRedirect
@@ -49,6 +49,11 @@ def alltools(request):
     prototyping_tools = PrototypingTool.objects.filter(published=True)
     context = {'prototyping_tools': prototyping_tools}
     return render(request, 'tools_all.html', context = context)
+
+def allresources(request):
+    resources = Resource.objects.filter(published=True)
+    context = {'resources': resources}
+    return render(request, 'resources_all.html', context = context)
 
 def prototypingtool(request, slug):
     tool = PrototypingTool.objects.get(slug=slug)
