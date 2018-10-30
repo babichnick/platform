@@ -1,4 +1,4 @@
-from prototyping.models import Tool, ToolImage,PublicationImage, PrototypingTool, Author, Category, Publication, City, Conference, Contact
+from prototyping.models import Tool, ToolImage,PublicationImage, PrototypingTool, Author, Resource, Category, Publication, City, Conference, Contact
 from django.contrib import admin
 
 class CategoryAdmin(admin.ModelAdmin):
@@ -25,6 +25,11 @@ class PrototypingToolAdmin(admin.ModelAdmin):
     inlines = [ ToolImageInline, ] 
     #exclude = ('abbreviation', 'name', 'description', 'logo', 'website', 'published', 'free', 'cost_subscription', 'cost_purchase', 'works_offline', 'last_updated', 'availablefor_web', 'availablefor_mac', 'availablefor_windows', 'availablefor_linux', 'availablefor_ios', 'availablefor_android',)
 
+
+class ResourceAdmin(admin.ModelAdmin):
+    list_diplay = ('name','published')
+    list_filter = ['published']
+
 class AuthorAdmin(admin.ModelAdmin):
     list_diplay = ('full_name',)
 
@@ -48,6 +53,8 @@ admin.site.register(PrototypingTool, PrototypingToolAdmin)
 admin.site.register(Author, AuthorAdmin)
 admin.site.register(Category, CategoryAdmin)
 admin.site.register(Publication, PublicationAdmin)
+
+admin.site.register(Resource, ResourceAdmin)
 
 admin.site.register(City, CityAdmin)
 admin.site.register(Conference, ConferenceAdmin)

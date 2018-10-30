@@ -110,6 +110,34 @@ class PrototypingTool(Tool):
    def __str__(self):
         return "%s" % self.name
 
+
+class Resource(models.Model):
+   name = models.CharField(max_length=100, help_text="name of resource")
+   slug = models.SlugField(unique=True) 
+   description = models.TextField(default = "")
+   header_image = models.ImageField(upload_to=PathAndRename('resourceimage/'), blank=True, null=True)
+   link = models.CharField(max_length=300, help_text="link to resource", default="http://")
+   tags = models.TextField(default = "")
+
+   published = models.BooleanField(default = False, help_text="Resource is visible in the list")
+
+   RESOURCE_TYPE_CHOICES = (
+         (1, 'Fonts'),
+         (2, 'Illustrations'), 
+         (3, 'Icons'), 
+         (4, 'Mockups'),
+         (5, 'Web Templates'),
+         (6, 'UI Kits'),    
+    )
+
+   resource_type = models.IntegerField(choices=RESOURCE_TYPE_CHOICES)
+
+   def __str__(self):
+      return "%s" % self.name
+ 
+
+
+
 class Author(models.Model):
     full_name = models.CharField(max_length=100)
     email = models.EmailField()
