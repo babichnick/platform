@@ -17,8 +17,14 @@
 
 
 <div class="container maincontainer">
-<div class="row">
- 
+
+ <div class="row justify-content-start" style="padding-top:20px"> 
+  <div class="col-12">
+    {{ prototyping_tools |length }} tools
+  </div>
+</div>
+
+<div class="row" style="padding-top:20px">
  {% for tool in prototyping_tools %}
  <div class="col-12 col-md-4 col-lg-3">
   <div class="card mb-4">
