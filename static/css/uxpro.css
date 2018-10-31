@@ -175,17 +175,42 @@
 	margin-right: 10px;
 }
 
-.publication-h1 {
-	font-size: 32px;
+
+
+.publication-content {
+	font-size: 19px;
+    font-family: PT Serif,serif;
+	line-height: 1.7em;
+	font-weight: 400;
+    word-break: break-word;
 }
 
 .publication-author {
-	font-size: 14px; 
-	font-weight: 500;
+  font-size: 14px; 
+  font-weight: 400;
 }
 
-.publication-content {
-	font-size: 18px;
-	line-height: 1.8em;
-	font-weight: 400;
+.publication-content>h1 {
+    font-family: Museo,sans-serif;
+    font-size: 38px;
+    font-weight: 700;
+    color: #222;
+    line-height: 41px;
+}
+
+
+.publication-content>h2 {
+    font-family: Museo,sans-serif;
+    color: #222;
+    font-size: 32px;
+    font-weight: 700;
+    line-height: 1.13em;
+}
+
+.publication-content>p {
+    display: block;
+    margin-block-start: 1em;
+    margin-block-end: 1em;
+    margin-inline-start: 0px;
+    margin-inline-end: 0px;
 }

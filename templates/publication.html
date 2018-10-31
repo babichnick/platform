@@ -23,9 +23,9 @@
  <div class="row justify-content-center"> 
   <div class="col col-md-9">
    <img src="{% get_media_prefix %}{{ publication.header_image }}" alt="{{ publication.title }}" class="img-fluid">
-   <h1 class="publication-h1">{{ publication.title}}</h1>
-   <p class="publication-author">{{ publication.pub_date | date:"d M Y" }}</p>
    <div class="publication-content">
+   <h1>{{ publication.title}}</h1>
+   <p class="publication-author">{{ publication.pub_date | date:"d M Y" }}</p>
    {{ publication.content|safe }}
  </div>
  </div>
