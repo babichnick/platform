@@ -1,6 +1,15 @@
 {% extends "regular_page.html" %}
 {% load static %}
 
+{% block opengraph %}
+<!-- Facebook OpenGraph" -->
+<meta property="og:url"           content="{{ SITE_URL }}{{ request.get_full_path }}" />
+<meta property="og:type"          content="article" />
+<meta property="og:title"         content="{{publication.title}} | UX Pro" />
+<meta property="og:description"   content="{{ publication.tease }}" />
+<meta property="og:image"         content="{{ SITE_URL }}{% get_media_prefix %}{{ publication.header_image }}" />
+{% endblock%}
+
 {% block libraries %}
 
 <link href="{% static '/css/uxpro.css'%}" rel="stylesheet">
