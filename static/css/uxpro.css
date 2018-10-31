@@ -18,6 +18,11 @@
     font-size:12px;
 }
 
+.card-deck .card {
+  display: block;
+  flex-basis: 100%; /* change this value for each breakpoint*/
+}
+
  }
 
 
@@ -41,6 +46,11 @@
     font-size:12px;
 }
 
+.card-deck .card {
+  display: block;
+  flex-basis: 50%; /* change this value for each breakpoint*/
+}
+
 }
 
 
@@ -61,6 +71,11 @@
     color:black;
     padding:5px 10px;
     font-size:12px;
+}
+
+.card-deck .card {
+  display: block;
+  flex-basis: 33.3%; /* change this value for each breakpoint*/
 }
 
 }
@@ -88,6 +103,12 @@
     padding:5px 10px;
     font-size:12px;
 }
+
+.card-deck .card {
+  display: block;
+  flex-basis: 25%; /* change this value for each breakpoint*/
+}
+
   
 }
 
@@ -111,8 +132,22 @@
     font-size:12px;
 }
 
+.card-deck .card {
+  display: block;
+  flex-basis: 20%; /* change this value for each breakpoint*/
+}
+
+
 
 } 
+
+.card-deck {
+  display: flex;
+  justify-content: space-around;
+  flex-flow: row wrap;
+  align-items: stretch;
+}
+
 
 .maincontainer {
 	padding-top: 30px;
