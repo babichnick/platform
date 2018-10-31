@@ -12,6 +12,10 @@
    <script>
      $(document).ready(function(){
        $('button').click(function (){
+
+         $('button').removeClass('btn-primary').addClass('btn-outline-primary ');
+         $(this).addClass('btn-primary').removeClass('btn-outline-primary ');
+
          $('.card').removeClass('d-none');
          var type = $(this).val(); // get the value of the input, which we filter on
          if (type != 'All') {
@@ -36,15 +40,15 @@
 </div>
 </div>
  <div class="row justify-content-center mt-3"> 
- <div class="col col-md-8">
-   <button class="btn" type="button" id="btnall" value="All">All</button>
-   <button class="btn" type="button" id="btnfonts" value="Fonts">Fonts</button>
-   <button class="btn" type="button" id="btnillustrations" value="Illustrations">Illustrations</button>
-   <button class="btn" type="button" id="btnphotos" value="Photos">Photos</button>
-   <button class="btn" type="button" id="btnicons" value="Icons">Icons</button>
-   <button class="btn" type="button" id="btnmockups" value="Mockups">Mockups</button>
-   <button class="btn" type="button" id="btnwebtemplates" value="Web Templates">Web Templates</button>
-   <button class="btn" type="button" id="btnuikits" value="UI Kits">UI Kits</button>
+ <div class="col col-md-9">
+   <button class="btn btn-primary" type="button" id="btnall" value="All">All</button>
+   <button class="btn btn-outline-primary ml-2" type="button" id="btnfonts" value="Fonts">Fonts</button>
+   <button class="btn btn-outline-primary ml-2" type="button" id="btnillustrations" value="Illustrations">Illustrations</button>
+   <button class="btn btn-outline-primary ml-2" type="button" id="btnphotos" value="Photos">Photos</button>
+   <button class="btn btn-outline-primary ml-2" type="button" id="btnicons" value="Icons">Icons</button>
+   <button class="btn btn-outline-primary ml-2" type="button" id="btnmockups" value="Mockups">Mockups</button>
+   <button class="btn btn-outline-primary ml-2" type="button" id="btnwebtemplates" value="Web Templates">Web Templates</button>
+   <button class="btn btn-outline-primary ml-2" type="button" id="btnuikits" value="UI Kits">UI Kits</button>
  </div>
  </div>
 
