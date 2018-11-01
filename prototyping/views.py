@@ -3,18 +3,19 @@ from django.http import Http404
 from django.shortcuts import render
 from django.core.mail import send_mail
 
-from .models import Tool, PrototypingTool, Resource, Publication, Contact
+from .models import Tool, PrototypingTool, Link, Resource, Publication, Contact
 
 from .forms import ContactForm
 from django.http import HttpResponseRedirect
 
 def index(request):
-    publications_list_published = Publication.objects.filter(status=2)#order_by('-pub_date')
+    #publications_list_published = Publication.objects.filter(status=2)#order_by('-pub_date')
     
-    paginator = Paginator(publications_list_published, 12) #Show 12 latest publications
+    links_list_published = Link.objects.filter(published=True)
+    paginator = Paginator(links_list_published, 12) #Show 12 latest publications
 
     page = request.GET.get('page')
-    publications = paginator.get_page(page)
+    links = paginator.get_page(page)
 
     
     #if page:
@@ -25,7 +26,7 @@ def index(request):
     #    first_six_posts = publications[1:7]
     #    second_six_posts = publications[7:13]
     #    tail_post = publications[13]
-    context = { 'publications': publications}
+    context = { 'links': links}
     #            'firstsixposts': first_six_posts,
     #            'secondsixposts': second_six_posts,
     #            'tailpost': tail_post,
