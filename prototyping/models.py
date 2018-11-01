@@ -227,6 +227,7 @@ class Link(models.Model):
   tags = models.CharField(max_length=500, default="")
   site = models.ForeignKey(Site, on_delete=models.CASCADE, blank=True, null=True)
   url = models.CharField(max_length=300, help_text="link to resource", default="http://")
+  category = models.ForeignKey(Category, on_delete=models.CASCADE, blank=True, null=True)
   pub_date = models.DateTimeField(default=datetime.datetime.now)
   published = models.BooleanField(default = False, help_text="Link is visible in the list")
 
