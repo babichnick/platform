@@ -8,14 +8,13 @@ from .models import Tool, PrototypingTool, Link, Resource, Publication, Contact
 from .forms import ContactForm
 from django.http import HttpResponseRedirect
 
-def index(request):
+def index(request,pagenumber = 1):
     #publications_list_published = Publication.objects.filter(status=2)#order_by('-pub_date')
     
     links_list_published = Link.objects.filter(published=True)
     paginator = Paginator(links_list_published, 12) #Show 12 latest publications
 
-    page = request.GET.get('page')
-    links = paginator.get_page(page)
+    links = paginator.get_page(pagenumber)
 
     
     #if page:
