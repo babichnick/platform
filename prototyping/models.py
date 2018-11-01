@@ -205,6 +205,36 @@ class PublicationImage(models.Model):
     image = models.ImageField(upload_to=PathAndRename('publicationimage/'))
 
 
+class Site(models.Model):
+    name = models.CharField(max_length=200)
+    slug = models.SlugField(unique=True)
+    icon = models.ImageField(upload_to=PathAndRename('linkimage/'), blank=True, null=True)
+
+    class Meta:
+        verbose_name_plural = "Sites"
+    
+    def __unicode__(self):
+        return self.name
+
+    def __str__(self):
+        return "%s" % self.name
+
+class Link(models.Model):
+  title = models.CharField(max_length=500, default="")
+  slug = models.SlugField(max_length=200, default="",unique=True)
+  header_image = models.ImageField(upload_to=PathAndRename('linkimage/'), blank=True, null=True)
+  tease = models.TextField()
+  tags = models.CharField(max_length=500, default="")
+  site = models.ForeignKey(Site, on_delete=models.CASCADE, blank=True, null=True)
+  url = models.CharField(max_length=300, help_text="link to resource", default="http://")
+  pub_date = models.DateTimeField(default=datetime.datetime.now)
+  published = models.BooleanField(default = False, help_text="Link is visible in the list")
+
+  def __str__(self):
+    return "%s" % self.name
+ 
+
+
 class City(models.Model):
 
     REGION_CHOICES = (

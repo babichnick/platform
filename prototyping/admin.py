@@ -1,4 +1,4 @@
-from prototyping.models import Tool, ToolImage,PublicationImage, PrototypingTool, Author, Resource, Category, Publication, City, Conference, Contact
+from prototyping.models import Tool, ToolImage,PublicationImage, PrototypingTool, Author, Site, Link, Resource, Category, Publication, City, Conference, Contact
 from django.contrib import admin
 
 class CategoryAdmin(admin.ModelAdmin):
@@ -28,6 +28,13 @@ class PrototypingToolAdmin(admin.ModelAdmin):
 
 class ResourceAdmin(admin.ModelAdmin):
     list_diplay = ('name','published')
+    list_filter = ['published']
+
+class SiteAdmin(admin.ModelAdmin):
+    list_diplay = ('name',)
+
+class LinkAdmin(admin.ModelAdmin):
+    list_diplay = ('title','published')
     list_filter = ['published']
 
 class AuthorAdmin(admin.ModelAdmin):
@@ -60,6 +67,8 @@ admin.site.register(City, CityAdmin)
 admin.site.register(Conference, ConferenceAdmin)
 admin.site.register(Contact, ContactAdmin)
 
+admin.site.register(Site, SiteAdmin)
+admin.site.register(Link, LinkAdmin)
 
 #class PrototypingToolInline(admin.TabularInline):
 #    model = PrototypingTool
