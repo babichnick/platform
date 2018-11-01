@@ -231,7 +231,7 @@ class Link(models.Model):
   published = models.BooleanField(default = False, help_text="Link is visible in the list")
 
   def __str__(self):
-    return "%s" % self.name
+    return "%s" % self.title
  
 
 
