@@ -5,16 +5,13 @@
 {% block pageheader %}
 
  <!-- Navigation -->
-    <nav class="navbar navbar-expand-lg navbar-light" style="background-color: #FFFFF;">
-      <div class="container-fluid">
+   <nav class="navbar navbar-expand-lg navbar-dark navbar-custom" >
         <a class="navbar-brand" href="/">
-		<img src="/media/sitelogo.png" width="30" height="30" class="d-inline-block align-top" alt="">
+		<img src="/media/sitelogo.png" width="20" height="20" class="d-inline-block align-top" alt="">
 		UX Pro</a>
-        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
-          <span class="navbar-toggler-icon"></span>
-        </button>
+       
         <div class="collapse navbar-collapse" id="navbarResponsive">
-          <ul class="nav nav-pills ml-auto">
+          <ul class="navbar-nav mr-auto">
             <!--<li class="nav-item active">
               <a class="nav-link" href="#">Home
                 <span class="sr-only">(current)</span>
@@ -40,12 +37,24 @@
             </li>
           </ul>
         </div>
-      </div>
     </nav>
 {% endblock %}
 
 
 {% block content %}
+
+{% endblock %}
+
+{% block footer %}
+<div class="container-fluid">
+<div class="row justify-content-center footer">
+
+    <div class="footer-link"><a href="/about">About</a></div>
+  <div class="footer-link"><a href="/contact">Contact</a></div>
+  <div class="footer-link"><a href="https://twitter.com/uxprocc">Follow on Twitter</a></div>
+  <div class="footer-link-last"><a href="https://facebook.com/uxprocc">Like on Facebook</a></div>
+  </div>
+</div>
 
 {% endblock %}
 

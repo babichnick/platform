@@ -214,3 +214,58 @@
     margin-inline-start: 0px;
     margin-inline-end: 0px;
 }
+
+
+
+/* change the background color */
+.navbar-custom {
+    background-color: #64A1F4;
+}
+/* change the brand and text color */
+.navbar-custom .navbar-brand,
+.navbar-custom .navbar-text {
+    color: rgba(255,255,255,.8);
+	font-size: 100%;
+}
+/* change the link color */
+.navbar-custom .navbar-nav .nav-link {
+    color: rgba(255,255,255,.8);
+	font-size: 18px;
+}
+
+.navbar-custom .nav-item:focus .nav-link,
+.navbar-custom .nav-item:hover .nav-link {
+    color: #ffffff;
+	background-color: #4A91F2; /* add background-color to active links */
+}
+
+.navbar-custom .nav-item.active .nav-link {
+   color: #ffffff;
+   background-color: #8DBDFF; /* add background-color to active links */
+}
+
+.footer{
+  font-family: Museo,sans-serif;
+  color: #222;
+  background-color: #ffffff; /* add background-color to active links */
+  font-size: 1rem;
+  margin: 20px 0;
+  padding: 0 20px;
+  text-align: center;
+}
+
+.footer .footer-link {
+    display: inline-block;
+    margin-right: 10px;
+}
+
+.footer .footer-link:after {
+    content: "|";
+    display: inline-block;
+    margin-left: 10px;
+}
+
+.footer .footer-link-last {
+    display: inline-block;
+    margin-right: 10px;
+}
