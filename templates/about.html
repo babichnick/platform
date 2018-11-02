@@ -1,0 +1,38 @@
+{% extends "regular_page.html" %}
+{% load static %}
+
+
+
+{% block libraries %}
+   <link href="{% static '/css/uxpro.css'%}" rel="stylesheet">
+
+   <script src="{% static '/jquery/jquery-latest.js'%}"></script>
+   <script src="{% static '/bootstrap/js/bootstrap.bundle.min.js'%}"></script>
+
+{% endblock%}
+
+{% block content %}
+
+
+<div class="container maincontainer">
+
+<div class="row justify-content-center">
+  <div class="col-12 col-md-8">
+<p>UXPro is a one-stop resource for everything related to user experience. UXPro collects the best links about UX design, visual design, user research, and all other facets of design.</p>
+
+<p>Visit UXPro to stay on top of the latest news, trends, and resources.
+<ul>
+<li>Get in touch</li>
+</li>Visit our Facebook page</li>
+<li>Follow us on Twitter</li>
+</ul>
+</p>
+
+<p>UXPro is a project by <a href="https://twitter.com/@101babich">Nick Babich</a></p>
+
+</div>
+</div>
+
+</div>
+ 
+{% endblock %}

@@ -71,6 +71,8 @@ def prototypingtool(request, slug):
                }
     return render(request, 'tool.html', context = context)
 
+def about(request):
+    return render(request, 'about.html')
 
 def contact_me(request):
     # if this is a POST request we need to process the form data

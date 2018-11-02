@@ -30,6 +30,7 @@ urlpatterns = [
     path('resources/' , views.allresources),
     #path('blog/', views.blog),
     #path('blog/page<int:num>/', views.blog),
+    path('about/', views.about),
     path('contact/' , views.contact_me),
 ] + static(settings.STATIC_URL, document_root=settings.STATIC_ROOT)
 
