@@ -27,7 +27,7 @@
 <div class="row" style="padding-top:20px">
  {% for tool in prototyping_tools %}
  <div class="col-12 col-md-4 col-lg-3">
-  <div class="card mb-4">
+  <div class="card card-shadow mb-4">
    <a href="/tools/{{ tool.slug }}"><img class="card-img-top" src="{% get_media_prefix %}{{ tool.thumb }}" alt="{{ tool.name }}"></a>
     <div class="card-body">
       <h5 class="card-title toolcardtitle"><a href="/tools/{{ tool.slug }}">{{tool.name}}</a></h5>
