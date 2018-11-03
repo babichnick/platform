@@ -11,7 +11,7 @@ from django.http import HttpResponseRedirect
 def index(request,pagenumber = 1):
     #publications_list_published = Publication.objects.filter(status=2)#order_by('-pub_date')
     
-    links_list_published = Link.objects.filter(published=True)
+    links_list_published = Link.objects.filter(published=True).order_by('-pub_date')
     paginator = Paginator(links_list_published, 12) #Show 12 latest publications
 
     links = paginator.get_page(pagenumber)
