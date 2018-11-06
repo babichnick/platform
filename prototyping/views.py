@@ -3,10 +3,31 @@ from django.http import Http404
 from django.shortcuts import render
 from django.core.mail import send_mail
 
+from django.contrib.auth.forms import UserCreationForm
+
 from .models import Tool, PrototypingTool, Link, Resource, Publication, Contact
 
-from .forms import ContactForm
+from .forms import ContactForm, SignUpForm
 from django.http import HttpResponseRedirect
+
+
+def signup(request):
+    if request.method == 'POST':
+        form = SignUpForm(request.POST)
+        if form.is_valid():
+            user = form.save(commit=False)
+            user.is_active = False
+            user.save()
+            #username = form.cleaned_data.get('username')
+            #raw_password = form.cleaned_data.get('password1')
+            #user = authenticate(username=username, password=raw_password)
+            #login(request, user)
+            return redirect('home')
+    else:
+        form = SignUpForm()
+    return render(request, 'signup.html', {'form': form})
+
+
 
 def index(request,pagenumber = 1):
     #publications_list_published = Publication.objects.filter(status=2)#order_by('-pub_date')

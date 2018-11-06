@@ -3,6 +3,10 @@ from django.db import models
 from taggit.managers import TaggableManager
 from django.utils.deconstruct import deconstructible
 
+from django.contrib.auth.models import User
+from django.db.models.signals import post_save
+from django.dispatch import receiver
+
 DEFAULT = 'nologo.jpg'
 
 
@@ -140,13 +144,18 @@ class Resource(models.Model):
 
 
 class Author(models.Model):
-    full_name = models.CharField(max_length=100)
-    email = models.EmailField()
-    slug = models.SlugField(unique=True)
+    user = models.OneToOneField(User, on_delete=models.CASCADE)
+    full_name = models.CharField(max_length=100, blank=True)
+    email_confirmed = models.BooleanField(default=False)
 
     def __str__(self):
         return "%s" % (self.full_name)
 
+@receiver(post_save, sender=User)
+def update_user_profile(sender, instance, created, **kwargs):
+    if created:
+        Author.objects.create(user=instance)
+    instance.profile.save()
 
 class Category(models.Model):
     name = models.CharField(max_length=200)

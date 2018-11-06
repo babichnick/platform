@@ -28,6 +28,7 @@ urlpatterns = [
     path('tools/<str:slug>/' , views.prototypingtool),
     path('publications/<str:slug>/' , views.publications),
     path('freebies/' , views.allresources),
+    path('signup/', views.signup),
     #path('blog/', views.blog),
     #path('blog/page<int:num>/', views.blog),
     path('about/', views.about),
