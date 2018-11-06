@@ -343,3 +343,8 @@
     position: absolute;
     left: -5000px;
 }
+
+.input-group {
+    margin: 20px auto;
+    width: 100%;
+}
