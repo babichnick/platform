@@ -15,6 +15,12 @@
 
 
 <div class="container maincontainer">
+
+  {% if links.number == 1 %}
+  <div class="row justify-content-center mb-4">
+    <h3>Handpicked design news</h3>
+  </div>
+  {% endif %}
 <div class="row">
  
  {% for link in links %}
