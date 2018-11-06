@@ -151,6 +151,7 @@ class Author(models.Model):
 class Category(models.Model):
     name = models.CharField(max_length=200)
     slug = models.SlugField(unique=True)
+    color = models.CharField(max_length=100, blank=True, null=True, help_text="The color which is used to define a category")
 
     class Meta:
         verbose_name_plural = "Categories"
