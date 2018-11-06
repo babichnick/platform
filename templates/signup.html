@@ -9,12 +9,16 @@
 
 {% endblock%}
 
-{% block title %}<title>Contact | UX Pro</title>{% endblock %}
+{% block title %}<title>Create account | UXPRO</title>{% endblock %}
 
 
 {% block content %}
   
 <div class="container maincontainer">
+   <div class="row justify-content-center mb-4">
+    <h3>Create new account</h3>
+  </div>
+
   <div class="row justify-content-center">
     <form method="post">
     {% csrf_token %}

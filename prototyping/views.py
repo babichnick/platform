@@ -1,6 +1,6 @@
 from django.core.paginator import EmptyPage, PageNotAnInteger, Paginator
 from django.http import Http404
-from django.shortcuts import render
+from django.shortcuts import render,redirect
 from django.core.mail import send_mail
 
 from django.contrib.auth.forms import UserCreationForm
@@ -22,7 +22,7 @@ def signup(request):
             #raw_password = form.cleaned_data.get('password1')
             #user = authenticate(username=username, password=raw_password)
             #login(request, user)
-            return redirect('home')
+            return redirect('/')
     else:
         form = SignUpForm()
     return render(request, 'signup.html', {'form': form})

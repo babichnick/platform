@@ -155,7 +155,7 @@ class Author(models.Model):
 def update_user_profile(sender, instance, created, **kwargs):
     if created:
         Author.objects.create(user=instance)
-    instance.profile.save()
+    instance.author.save()
 
 class Category(models.Model):
     name = models.CharField(max_length=200)
