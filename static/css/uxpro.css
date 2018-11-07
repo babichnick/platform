@@ -348,3 +348,7 @@
     margin: 20px auto;
     width: 100%;
 }
+
+div.g-recaptcha > div.grecaptcha-badge {
+    width:0 !important;
+}
