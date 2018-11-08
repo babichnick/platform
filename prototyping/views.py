@@ -74,7 +74,10 @@ def alltools(request):
 def alltoolsinbox(request,category):
     category_clean = Toolboxcategory.objects.get(slug=category)
     box_tools = Toolbox.objects.filter(category=category_clean)
-    context = {'box_tools': box_tools}
+    context = {
+                 'box_tools': box_tools,
+                 'category_name': category_clean.name,
+                 }
     return render(request, 'toolbox_all.html', context = context)
 
 def allresources(request):
