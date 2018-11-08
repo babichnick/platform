@@ -5,7 +5,7 @@ from django.core.mail import send_mail
 
 from django.contrib.auth.forms import UserCreationForm
 
-from .models import Tool, PrototypingTool, Link, Resource, Publication, Contact
+from .models import Tool, PrototypingTool, Link, Resource, Publication, Contact, Toolbox, Toolboxcategory
 
 from .forms import ContactForm, SignUpForm
 from django.http import HttpResponseRedirect
@@ -70,6 +70,12 @@ def alltools(request):
     prototyping_tools = PrototypingTool.objects.filter(published=True)
     context = {'prototyping_tools': prototyping_tools}
     return render(request, 'tools_all.html', context = context)
+
+def alltoolsinbox(request,category):
+    category_clean = Toolboxcategory.objects.get(slug=category)
+    box_tools = Toolbox.objects.filter(category=category_clean)
+    context = {'box_tools': box_tools}
+    return render(request, 'toolbox_all.html', context = context)
 
 def allresources(request):
     resources = Resource.objects.filter(published=True)

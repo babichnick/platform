@@ -155,12 +155,16 @@ class Toolboxcategory(MPTTModel):
       return "%s" % self.name
 
 class Toolbox(models.Model):
-  #abbreviation = models.CharField(max_length=50, help_text="Abbreviation of the app", default="", unique=True)
   name = models.CharField(max_length=100, help_text="name of app")
   slug = models.SlugField(unique=True) 
 
+  tease = models.TextField()
   description = models.TextField(default = "")
   category = models.ForeignKey(Toolboxcategory, on_delete=models.CASCADE, blank=True, null=True)
+
+  logo = models.ImageField(upload_to=PathAndRename('toolboximage/'), blank=True, null=True)
+  website = models.CharField(max_length=300, help_text="website address", default="http://")
+  tags = TaggableManager()
 
   def __str__(self):
       return "%s" % self.name

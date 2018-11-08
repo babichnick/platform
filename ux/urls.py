@@ -30,9 +30,11 @@ urlpatterns = [
     path('tools/<str:slug>/' , views.prototypingtool),
     path('publications/<str:slug>/' , views.publications),
     path('freebies/' , views.allresources),
-    path('signup/', views.signup),
+    #path('toolbox/<str:slug>/', views.toolboxtool),
+    path('toolbox/visualdesign/<str:category>/', views.alltoolsinbox),
     #path('blog/', views.blog),
     #path('blog/page<int:num>/', views.blog),
+    path('signup/', views.signup),
     path('about/', views.about),
     path('contact/' , views.contact_me),
 ] + static(settings.STATIC_URL, document_root=settings.STATIC_ROOT)

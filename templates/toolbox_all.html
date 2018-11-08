@@ -1,0 +1,53 @@
+{% extends "regular_page.html" %}
+{% load static %}
+
+
+
+{% block libraries %}
+   <link href="{% static '/css/uxpro.css'%}" rel="stylesheet">
+
+   <script src="{% static '/jquery/jquery-latest.js'%}"></script>
+   <script src="{% static '/bootstrap/js/bootstrap.bundle.min.js'%}"></script>
+
+{% endblock%}
+
+{% block title %}<title>Design Tools | UX Pro</title>{% endblock %}
+
+{% block content %}
+
+
+<div class="container maincontainer">
+
+ <div class="row justify-content-center mb-4">
+    <h3>Color Tools</h3>
+  </div>
+
+ <div class="row justify-content-start" style="padding-top:20px"> 
+  <div class="col-12">
+    {{ box_tools |length }} tools
+  </div>
+</div>
+
+<div class="row" style="padding-top:20px">
+ {% for tool in box_tools %}
+ <div class="col-12 col-md-4 col-lg-3">
+  <div class="card card-shadow mb-4">
+
+   <div class="item-in-category">
+   <a href="/toolbox/{{ tool.slug }}">
+    <span class="image-badge"><img height="25" width="25" src="{% get_media_prefix %}{{ tool.logo }}" alt="{{ tool.name }}"></span>
+    <img class="card-img-top" src="{% get_media_prefix %}{{ tool.thumb }}" alt="{{ tool.name }}"></a>
+   </div>
+
+    <div class="card-body">
+      <h5 class="card-title toolcardtitle"><a href="/toolbox/{{ tool.slug }}">{{tool.name}}</a></h5>
+      <p class="card-text toolcardbody">{{ tool.tease|truncatechars:100 }}</p>
+    </div>
+  </div>
+</div>
+{% endfor %}
+
+</div>
+</div>
+ 
+{% endblock %}
