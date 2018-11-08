@@ -15,7 +15,7 @@ Including another URLconf
 """
 from django.conf.urls import include
 from django.contrib import admin
-from django.urls import path
+from django.urls import path, re_path
 from django.conf import settings
 from django.conf.urls.static import static
 from prototyping import views
@@ -35,6 +35,10 @@ urlpatterns = [
     #path('blog/', views.blog),
     #path('blog/page<int:num>/', views.blog),
     path('signup/', views.signup),
+    path('activateyouraccount/', views.activateyouraccount),
+    re_path(r'^activate/(?P<uidb64>[0-9A-Za-z_\-]+)/(?P<token>[0-9A-Za-z]{1,13}-[0-9A-Za-z]{1,20})/$', views.activate, name='activate'),
+    path('accountactive/', views.accountactive),
+    path('invalidlink/', views.invalidlink),
     path('about/', views.about),
     path('contact/' , views.contact_me),
 ] + static(settings.STATIC_URL, document_root=settings.STATIC_ROOT)
