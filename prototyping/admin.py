@@ -1,6 +1,9 @@
 from prototyping.models import Tool, ToolImage,PublicationImage, PrototypingTool, Author, Site, Link, Resource, Category, Publication, City, Conference, Contact
 from django.contrib import admin
 
+from mptt.admin import MPTTModelAdmin
+from prototyping.models import Toolbox, Toolboxcategory
+
 class CategoryAdmin(admin.ModelAdmin):
     list_display = ('name',)
 
@@ -54,6 +57,13 @@ class ConferenceAdmin(admin.ModelAdmin):
 class ContactAdmin(admin.ModelAdmin):
     list_display = ('full_name','email','created')
 
+#class CustomMPTTModelAdmin(MPTTModelAdmin):
+#    mptt_indent_field = "name"
+
+
+class ToolboxAdmin(admin.ModelAdmin):
+    list_diplay = ('name',)
+
 # Register your models here.
 admin.site.register(Tool, ToolAdmin)
 admin.site.register(PrototypingTool, PrototypingToolAdmin)
@@ -69,6 +79,9 @@ admin.site.register(Contact, ContactAdmin)
 
 admin.site.register(Site, SiteAdmin)
 admin.site.register(Link, LinkAdmin)
+
+admin.site.register(Toolbox, ToolboxAdmin)
+admin.site.register(Toolboxcategory, MPTTModelAdmin)
 
 #class PrototypingToolInline(admin.TabularInline):
 #    model = PrototypingTool

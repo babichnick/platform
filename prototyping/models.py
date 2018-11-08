@@ -6,6 +6,7 @@ from django.utils.deconstruct import deconstructible
 from django.contrib.auth.models import User
 from django.db.models.signals import post_save
 from django.dispatch import receiver
+from mptt.models import MPTTModel, TreeForeignKey
 
 DEFAULT = 'nologo.jpg'
 
@@ -141,6 +142,28 @@ class Resource(models.Model):
       return "%s" % self.name
  
 
+
+class Toolboxcategory(MPTTModel):
+    name = models.CharField(max_length=200, unique=True)
+    slug = models.SlugField(unique=True)
+    parent = TreeForeignKey('self', on_delete=models.CASCADE, null=True, blank=True, related_name='children')
+
+    class MPTTMeta:
+        order_insertion_by = ['name']
+
+    def __str__(self):
+      return "%s" % self.name
+
+class Toolbox(models.Model):
+  #abbreviation = models.CharField(max_length=50, help_text="Abbreviation of the app", default="", unique=True)
+  name = models.CharField(max_length=100, help_text="name of app")
+  slug = models.SlugField(unique=True) 
+
+  description = models.TextField(default = "")
+  category = models.ForeignKey(Toolboxcategory, on_delete=models.CASCADE, blank=True, null=True)
+
+  def __str__(self):
+      return "%s" % self.name
 
 
 class Author(models.Model):
