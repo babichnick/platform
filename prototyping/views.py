@@ -80,6 +80,17 @@ def alltoolsinbox(request,category):
                  }
     return render(request, 'toolbox_all.html', context = context)
 
+
+def toolboxtool(request, slug):
+    tool = Toolbox.objects.get(slug=slug)
+    context = {
+                 'tool': tool,
+               }
+    return render(request, 'toolbox.html', context = context)
+
+
+
+
 def allresources(request):
     resources = Resource.objects.filter(published=True)
     context = {'resources': resources}

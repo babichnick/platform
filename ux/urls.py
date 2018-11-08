@@ -30,7 +30,7 @@ urlpatterns = [
     path('tools/<str:slug>/' , views.prototypingtool),
     path('publications/<str:slug>/' , views.publications),
     path('freebies/' , views.allresources),
-    #path('toolbox/<str:slug>/', views.toolboxtool),
+    path('toolbox/<str:slug>/', views.toolboxtool),
     path('toolbox/visualdesign/<str:category>/', views.alltoolsinbox),
     #path('blog/', views.blog),
     #path('blog/page<int:num>/', views.blog),

@@ -163,6 +163,7 @@ class Toolbox(models.Model):
   category = models.ForeignKey(Toolboxcategory, on_delete=models.CASCADE, blank=True, null=True)
 
   logo = models.ImageField(upload_to=PathAndRename('toolboximage/'), blank=True, null=True)
+  header_image = models.ImageField(upload_to=PathAndRename('toolboximage/'), blank=True, null=True)
   website = models.CharField(max_length=300, help_text="website address", default="http://")
   tags = TaggableManager()
 
