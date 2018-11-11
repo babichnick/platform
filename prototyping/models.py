@@ -146,10 +146,27 @@ class Resource(models.Model):
 class Toolboxcategory(MPTTModel):
     name = models.CharField(max_length=200, unique=True)
     slug = models.SlugField(unique=True)
-    parent = TreeForeignKey('self', on_delete=models.CASCADE, null=True, blank=True, related_name='children')
+    parent = TreeForeignKey('self', on_delete=models.CASCADE, null=True, blank=True, related_name='children', db_index=True)
 
     class MPTTMeta:
         order_insertion_by = ['name']
+
+    class Meta:
+      unique_together = (('parent', 'slug',))
+      verbose_name_plural = 'ToolboxCategories'
+
+
+    def get_slug_list(self):
+      try:
+        ancestors = self.get_ancestors(include_self=True)
+      except:
+        ancestors = []
+      else:
+        ancestors = [ i.slug for i in ancestors]
+      slugs = []
+      for i in range(len(ancestors)):
+        slugs.append('/'.join(ancestors[:i+1]))
+      return slugs
 
     def __str__(self):
       return "%s" % self.name
@@ -160,7 +177,7 @@ class Toolbox(models.Model):
 
   tease = models.TextField()
   description = models.TextField(default = "")
-  category = models.ForeignKey(Toolboxcategory, on_delete=models.CASCADE, blank=True, null=True)
+  category = TreeForeignKey('Toolboxcategory', null=True, blank=True, on_delete=models.CASCADE)
 
   logo = models.ImageField(upload_to=PathAndRename('toolboximage/'), blank=True, null=True)
   header_image = models.ImageField(upload_to=PathAndRename('toolboximage/'), blank=True, null=True)
