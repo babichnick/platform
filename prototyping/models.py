@@ -275,7 +275,7 @@ class Site(models.Model):
         return "%s" % self.name
 
 class Link(models.Model):
-  title = models.CharField(max_length=500, default="")
+  title = models.CharField(max_length=500, unique=True, default="")
   slug = models.SlugField(max_length=200, default="",unique=True)
   header_image = models.ImageField(upload_to=PathAndRename('linkimage/'), blank=True, null=True)
   tease = models.TextField()
