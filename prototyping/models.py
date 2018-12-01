@@ -279,7 +279,7 @@ class Link(models.Model):
   slug = models.SlugField(max_length=200, default="",unique=True)
   header_image = models.ImageField(upload_to=PathAndRename('linkimage/'), blank=True, null=True)
   tease = models.TextField()
-  link_tags = TaggableManager()
+  tags = TaggableManager()
   site = models.ForeignKey(Site, on_delete=models.CASCADE, blank=True, null=True)
   url = models.CharField(max_length=300, help_text="link to resource", default="http://")
   category = models.ForeignKey(Category, on_delete=models.CASCADE, blank=True, null=True)
