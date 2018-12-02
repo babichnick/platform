@@ -78,10 +78,15 @@ def accountactive(request):
 def invalidlink(request):
     return render(request, 'invalid_link.html')
 
-def index(request,pagenumber = 1):
+def index(request,pagenumber = 1, tag = None):
     #publications_list_published = Publication.objects.filter(status=2)#order_by('-pub_date')
     
-    links_list_published = Link.objects.filter(published=True).order_by('-pub_date')
+    if tag is not None:
+      links_list_published = Link.objects.filter(published=True, tags__slug=tag).order_by('-pub_date')
+
+    else:
+      links_list_published = Link.objects.filter(published=True).order_by('-pub_date')
+    
     paginator = Paginator(links_list_published, 12) #Show 12 latest publications
 
     links = paginator.get_page(pagenumber)

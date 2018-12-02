@@ -42,6 +42,11 @@
       </h6>
       <h5 class="card-title toolcardtitle"><a href="{{ link.url }}?ref=uxprocc">{{ link.title }}</a></h5>
       <p class="card-text toolcardbody">{{ link.tease| truncatechars:160 }}</p>
+      <p class="card-text toolcardbody">
+               {% for tag in link.tags.all %}
+                   <a href="/tag/{{ tag.slug }}">#{{ tag.name }}</a>
+              {% endfor %}
+      </p>
     </div>
   </div>
 </div>
