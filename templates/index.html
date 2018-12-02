@@ -20,6 +20,9 @@
   <div class="row justify-content-center mb-4">
     <h3>Handpicked design news</h3>
   </div>
+  <div class="row justify-content-center mb-4">
+    <h4>Filtered by: #{{ tag }}</h4>
+  </div>
   {% endif %}
 <div class="row">
  
@@ -58,15 +61,25 @@
 <nav aria-label="Pagination">
   <ul class="pagination">
     {% if links.has_previous %}
-    <li class="page-item"><a class="page-link" href="/">1</a></li>
-    <li class="page-item"><a class="page-link" href="/page/{{ links.previous_page_number }}">Previous</a></li>
+      {% if filter_by_tag %}
+      <li class="page-item"><a class="page-link" href="/tag/{{ tag }}">1</a></li>
+      <li class="page-item"><a class="page-link" href="/tag/{{ tag }}/page/{{ links.previous_page_number }}">Previous</a></li>
+      {% else %}
+      <li class="page-item"><a class="page-link" href="/">1</a></li>
+      <li class="page-item"><a class="page-link" href="/page/{{ links.previous_page_number }}">Previous</a></li>
+      {% endif %}
     {% endif %}
 
     <li class="page-item"><a class="page-link" href="#">Page {{ links.number }} of {{ links.paginator.num_pages }}</a></li>
 
     {% if links.has_next %}
+    {% if filter_by_tag %}
+    <li class="page-item"><a class="page-link" href="/tag/{{ tag }}/page/{{ links.next_page_number }}">Next</a></li>
+    <li class="page-item"><a class="page-link" href="/tag/{{ tag }}/page/{{ links.paginator.num_pages }}">Last</a></li>
+    {% else %}
     <li class="page-item"><a class="page-link" href="/page/{{ links.next_page_number }}">Next</a></li>
     <li class="page-item"><a class="page-link" href="/page/{{ links.paginator.num_pages }}">Last</a></li>
+    {% endif %}
     {% endif %}
   </ul>
 </nav>

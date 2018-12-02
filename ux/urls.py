@@ -25,6 +25,7 @@ urlpatterns = [
     path('admin/', admin.site.urls),
     path('', views.index, name='index'),
     path('tag/<str:tag>/', views.index, name='index'),
+    path('tag/<str:tag>/page/<int:pagenumber>/', views.index, name='index'),
     path('page/<int:pagenumber>/', views.index),
     path('compare/prototyping/', views.prototyping, name='prototyping'),
     path('tools/' , views.alltools),

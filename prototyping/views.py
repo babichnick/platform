@@ -80,9 +80,11 @@ def invalidlink(request):
 
 def index(request,pagenumber = 1, tag = None):
     #publications_list_published = Publication.objects.filter(status=2)#order_by('-pub_date')
+    filter_by_tag = False
     
     if tag is not None:
       links_list_published = Link.objects.filter(published=True, tags__slug=tag).order_by('-pub_date')
+      filter_by_tag = True
 
     else:
       links_list_published = Link.objects.filter(published=True).order_by('-pub_date')
@@ -100,7 +102,10 @@ def index(request,pagenumber = 1, tag = None):
     #    first_six_posts = publications[1:7]
     #    second_six_posts = publications[7:13]
     #    tail_post = publications[13]
-    context = { 'links': links}
+    context = { 'links': links,
+                'filter_by_tag': filter_by_tag,
+                'tag': tag,
+              }
     #            'firstsixposts': first_six_posts,
     #            'secondsixposts': second_six_posts,
     #            'tailpost': tail_post,
