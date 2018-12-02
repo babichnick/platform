@@ -1,0 +1,46 @@
+{% extends "regular_page.html" %}
+{% load static %}
+
+{% block libraries %}
+   <link href="{% static '/css/uxpro.css'%}" rel="stylesheet">
+
+   <script src="{% static '/jquery/jquery-latest.js'%}"></script>
+   <script src="{% static '/bootstrap/js/bootstrap.bundle.min.js'%}"></script>
+
+{% endblock%}
+
+{% block content %}
+<div class="container maincontainer">
+    <div class="row">
+             <h3>Results</h3>
+    </div>
+        {% if query %}
+
+
+            {% for result in page.object_list %}
+                <div class="row">
+                <p>
+                    <a href="{{ result.object.get_absolute_url }}">{{ result.object.title }}</a>
+                </p>
+               </div>
+            {% empty %}
+                <div class="row">
+                <p>No results found.</p>
+                </div>
+            {% endfor %}
+
+            {% if page.has_previous or page.has_next %}
+                <div class="row">
+                <div>
+                    {% if page.has_previous %}<a href="?q={{ query }}&amp;page={{ page.previous_page_number }}">{% endif %}&laquo; Previous{% if page.has_previous %}</a>{% endif %}
+                    |
+                    {% if page.has_next %}<a href="?q={{ query }}&amp;page={{ page.next_page_number }}">{% endif %}Next &raquo;{% if page.has_next %}</a>{% endif %}
+                </div>
+                </div>
+            {% endif %}
+        {% else %}
+            {# Show some example queries to run, maybe query syntax, something else? #}
+        {% endif %}
+</div>
+</div>
+{% endblock %}

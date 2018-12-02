@@ -20,9 +20,11 @@
   <div class="row justify-content-center mb-4">
     <h3>Handpicked design news</h3>
   </div>
+  {% if filter_by_tag %}
   <div class="row justify-content-center mb-4">
     <h4>Filtered by: #{{ tag }}</h4>
   </div>
+  {% endif %}
   {% endif %}
 <div class="row">
  
