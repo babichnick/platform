@@ -1,5 +1,6 @@
 {% extends "regular_page.html" %}
 {% load static %}
+{% load namify %}
 
 {% block opengraph %}
 <!-- Facebook OpenGraph" -->
@@ -26,6 +27,18 @@
   
 <div class="container maincontainer">
 
+  <div class="row justify-content-start"> 
+<nav aria-label="breadcrumb">
+  <ol class="breadcrumb">
+    <li class="breadcrumb-item" style="text-transform: capitalize;"><a href="/">Home</a></li>
+     
+    {% for i in tool.category.get_slug_list %}
+       <li class="breadcrumb-item" style="text-transform: capitalize;">{{ i | get_name }}</li>
+    {% endfor %}
+
+ </ol>
+</nav>
+</div>
 
   <div class="row justify-content-start"> 
   <div class="col">
