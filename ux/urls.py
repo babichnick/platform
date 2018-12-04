@@ -33,7 +33,8 @@ urlpatterns = [
     path('freebies/' , views.allresources),
     path('toolbox/<str:slug>/', views.toolboxtool),
     path('toolbox/visualdesign/<str:category>/', views.alltoolsinbox),
-    path('toolbox/userexperience/<str:category>/', views.alltoolsinbox),
+    path('toolbox/uxdesign/<str:category>/', views.alltoolsinbox),
+    path('toolbox/webdesign/<str:category>/', views.alltoolsinbox),
     path('toolbox/reality/<str:category>/', views.alltoolsinbox),
     path('toolbox/ai/<str:category>/', views.alltoolsinbox),
     #path('blog/', views.blog),
@@ -45,7 +46,7 @@ urlpatterns = [
     path('invalidlink/', views.invalidlink),
     path('about/', views.about),
     path('contact/' , views.contact_me),
-    url('search/', include('haystack.urls')),
+    url(r'^search/', include('haystack.urls')),
 ] + static(settings.STATIC_URL, document_root=settings.STATIC_ROOT)
 
 urlpatterns += static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
