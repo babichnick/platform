@@ -4,13 +4,22 @@
 
 {% block title %}<title>{{ category_name }} - UX Pro</title>{% endblock %}
 
+{% block opengraph %}
+<!-- Facebook OpenGraph" -->
+<meta property="og:url"           content="{{ SITE_URL }}{{ request.get_full_path }}" />
+<meta property="og:type"          content="article" />
+<meta property="og:title"         content="{{category.name}} | UX Pro" />
+<meta property="og:description"   content="{{ category.description }}" />
+<meta property="og:image"         content="{{ SITE_URL }}{% get_media_prefix %}{{ category.thumb }}" />
+{% endblock%}
+
 {% block content %}
 
 
 <div class="container maincontainer">
 
  <div class="row justify-content-center mb-4">
-    <h3>{{ category_name }}</h3>
+    <h3>{{ category.name }}</h3>
   </div>
 
  <div class="row justify-content-start" style="padding-top:20px"> 

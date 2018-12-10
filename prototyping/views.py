@@ -135,7 +135,7 @@ def alltoolsinbox(request,category):
     box_tools = Toolbox.objects.filter(category=category_clean)
     context = {
                  'box_tools': box_tools,
-                 'category_name': category_clean.name,
+                 'category': category_clean,
                  }
     return render(request, 'toolbox_all.html', context = context)
 

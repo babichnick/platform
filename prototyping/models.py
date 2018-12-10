@@ -147,6 +147,8 @@ class Toolboxcategory(MPTTModel):
     name = models.CharField(max_length=200, unique=True)
     slug = models.SlugField(unique=True)
     parent = TreeForeignKey('self', on_delete=models.CASCADE, null=True, blank=True, related_name='children', db_index=True)
+    thumb = models.ImageField(upload_to=PathAndRename('toolbox/'), blank=True, null=True)
+    description = models.TextField(default = "", blank=True, null=True)
 
     class MPTTMeta:
         order_insertion_by = ['name']
