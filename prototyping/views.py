@@ -182,10 +182,12 @@ def contact_me(request):
         # check whether it's valid:
         if form.is_valid():
             # process the data in form.cleaned_data as required
-            Contact.objects.create(**form.cleaned_data)
+            #Contact.objects.create(**form.cleaned_data)
 
             subject = form.cleaned_data['full_name']
             message = form.cleaned_data['message']
+            sender_email = form.cleaned_data['email']
+            Contact.objects.create(full_name = subject,email=sender_email, message=message)
             sender = 'hello@uxpro.cc'
             recipients = ['nick@babich.biz']
 
