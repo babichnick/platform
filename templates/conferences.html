@@ -24,7 +24,7 @@
       <a href="{{ conference.website }}"><img class="card-img-top lazyload" src="{% get_media_prefix %}placeholder.png" data-src="{% get_media_prefix %}{{ conference.header_image }}" data-srcset="{% get_media_prefix %}{{ conference.header_image }}" alt="{{ conference.title }}"></a>
     </div>
         <div class="col">
-      {{ conference.tease }}
+      {{ conference.tease|safe }}
     </div>
  </div>
 {% endfor %}
