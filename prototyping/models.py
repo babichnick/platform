@@ -331,6 +331,12 @@ class Conference(models.Model):
          (2, 'Public'), 
     )
 
+    CURRENCY_CHOICES = (
+         (1, 'USD'),
+         (2, 'EUR'), 
+         (3, 'GBP'), 
+    )
+
     class Meta:
         verbose_name_plural = "Conferences"
 
@@ -350,7 +356,9 @@ class Conference(models.Model):
     from_date = models.DateField(default=datetime.datetime.now)
     to_date = models.DateField(default=datetime.datetime.now)
 
-    logo = models.ImageField(default=DEFAULT, upload_to='conflogo/')
+    header_image = models.ImageField(default=DEFAULT, upload_to='conflogo/')
+    price = models.DecimalField(max_digits=6, decimal_places=2,default=0)
+    currency = models.IntegerField(choices=CURRENCY_CHOICES, default=1)
     website = models.CharField(max_length=300, help_text="website address", default="http://")
 
     def __str__(self):
