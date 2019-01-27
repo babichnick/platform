@@ -38,6 +38,7 @@ urlpatterns = [
     path('toolbox/reality/<str:category>/', views.alltoolsinbox),
     path('toolbox/ai/<str:category>/', views.alltoolsinbox),
     path('conferences/', views.conferences),
+    path('videos/', views.videos),
     #path('blog/', views.blog),
     #path('blog/page<int:num>/', views.blog),
     path('signup/', views.signup),

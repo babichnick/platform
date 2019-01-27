@@ -295,6 +295,34 @@ class Link(models.Model):
         return self.url
 
 
+class Video(models.Model):
+
+  VIDEO_TYPE = (
+         (1, 'Genral Topics'),
+         (2, 'Design Lessons'), 
+         (3, 'Inspiration'), 
+    )
+  
+  STATUS_CHOICES = (
+         (1, 'Draft'),
+         (2, 'Public'), 
+    )
+
+  class Meta:
+    verbose_name_plural = "Videos"
+
+  title = models.CharField(max_length=200, default="")
+  slug = models.SlugField(max_length=200, default="")
+
+  description = models.TextField()
+  status = models.IntegerField(choices=STATUS_CHOICES, default=1)
+
+  url = models.CharField(max_length=300, default="")
+  type = models.IntegerField(choices=VIDEO_TYPE, default=1)
+
+  def __str__(self):
+    return self.title
+
 class City(models.Model):
 
     REGION_CHOICES = (

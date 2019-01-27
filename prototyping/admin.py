@@ -1,4 +1,4 @@
-from prototyping.models import Tool, ToolImage,PublicationImage, PrototypingTool, Author, Site, Link, Resource, Category, Publication, City, Conference, Contact
+from prototyping.models import Tool, ToolImage,PublicationImage, PrototypingTool, Author, Site, Link, Resource, Category, Publication, City, Conference, Contact, Video
 from django.contrib import admin
 
 from mptt.admin import MPTTModelAdmin
@@ -54,6 +54,9 @@ class CityAdmin(admin.ModelAdmin):
 class ConferenceAdmin(admin.ModelAdmin):
     list_diplay = ('title',)
 
+class VideoAdmin(admin.ModelAdmin):
+    list_diplay = ('title',)
+
 class ContactAdmin(admin.ModelAdmin):
     list_display = ('full_name','email','created')
 
@@ -75,6 +78,7 @@ admin.site.register(Resource, ResourceAdmin)
 
 admin.site.register(City, CityAdmin)
 admin.site.register(Conference, ConferenceAdmin)
+admin.site.register(Video, VideoAdmin)
 admin.site.register(Contact, ContactAdmin)
 
 admin.site.register(Site, SiteAdmin)

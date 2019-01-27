@@ -5,7 +5,7 @@ from django.core.mail import send_mail
 
 from django.contrib.auth.forms import UserCreationForm
 
-from .models import Tool, PrototypingTool, Link, Resource, Publication, Contact, Toolbox, Toolboxcategory, Conference
+from .models import Tool, PrototypingTool, Link, Resource, Publication, Contact, Toolbox, Toolboxcategory, Conference, Video
 
 from .forms import ContactForm, SignUpForm
 from django.http import HttpResponseRedirect
@@ -125,6 +125,10 @@ def conferences(request):
     context = {'all_conferences': all_conferences}
     return render(request, 'conferences.html', context = context)
 
+def videos(request):
+    all_videos = Video.objects.filter(status=2)
+    context = {'all_videos': all_videos}
+    return render(request, 'videos.html', context = context)
 
 def prototyping(request):
     prototyping_tools = PrototypingTool.objects.filter(published=True)
