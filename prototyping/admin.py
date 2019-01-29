@@ -1,4 +1,4 @@
-from prototyping.models import Tool, ToolImage,PublicationImage, PrototypingTool, Author, Site, Link, Resource, Category, Publication, City, Conference, Contact, Video
+from prototyping.models import Tool, ToolImage,PublicationImage, PrototypingTool, Author, Site, Link, Resource, Category, Publication, City, Conference, Contact, Video, BookCategory, Book
 from django.contrib import admin
 
 from mptt.admin import MPTTModelAdmin
@@ -7,7 +7,8 @@ from prototyping.models import Toolbox, Toolboxcategory
 class CategoryAdmin(admin.ModelAdmin):
     list_display = ('name',)
 
-
+class BookCategoryAdmin(admin.ModelAdmin):
+    list_display = ('name',)
 
 class ToolImageInline(admin.TabularInline):
     model = ToolImage
@@ -37,6 +38,10 @@ class SiteAdmin(admin.ModelAdmin):
     list_diplay = ('name',)
 
 class LinkAdmin(admin.ModelAdmin):
+    list_diplay = ('title','published')
+    list_filter = ['published']
+
+class BookAdmin(admin.ModelAdmin):
     list_diplay = ('title','published')
     list_filter = ['published']
 
@@ -83,6 +88,9 @@ admin.site.register(Contact, ContactAdmin)
 
 admin.site.register(Site, SiteAdmin)
 admin.site.register(Link, LinkAdmin)
+
+admin.site.register(BookCategory, BookCategoryAdmin)
+admin.site.register(Book, BookAdmin)
 
 admin.site.register(Toolbox, ToolboxAdmin)
 admin.site.register(Toolboxcategory, MPTTModelAdmin)

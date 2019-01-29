@@ -219,6 +219,39 @@ class Category(models.Model):
         return "%s" % self.name
 
 
+class BookCategory(models.Model):
+    name = models.CharField(max_length=200)
+    slug = models.SlugField(unique=True)
+    color = models.CharField(max_length=100, blank=True, null=True, help_text="The color which is used to define a category")
+
+    class Meta:
+        verbose_name_plural = "BookCategories"
+    
+    def __unicode__(self):
+        return self.name
+
+    def __str__(self):
+        return "%s" % self.name
+
+class Book(models.Model):
+  title = models.CharField(max_length=500, unique=True, default="")
+  slug = models.SlugField(max_length=200, default="",unique=True)
+  header_image = models.ImageField(upload_to=PathAndRename('linkimage/'), blank=True, null=True)
+  tags = TaggableManager()
+  url = models.CharField(max_length=300, help_text="link to book", default="http://")
+  tease = models.TextField()
+  author = models.CharField(max_length=500, unique=True, default="")
+  category = models.ForeignKey(BookCategory, on_delete=models.CASCADE, blank=True, null=True)
+  pub_date = models.DateTimeField(default=datetime.datetime.now)
+  published = models.BooleanField(default = False, help_text="Book is visible in the list")
+
+  def __str__(self):
+    return "%s" % self.title
+ 
+  def get_absolute_url(self):
+        return self.url
+
+
 class Publication(models.Model):
 
     STATUS_CHOICES = (
