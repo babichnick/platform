@@ -121,7 +121,7 @@ def publications(request,slug):
     return render(request, 'publication.html', context = context)
 
 def conferences(request):
-    all_conferences = Conference.objects.filter(status=2).order_by('from_date')
+    all_conferences = Conference.objects.filter(status=2).order_by('-from_date')
     context = {'all_conferences': all_conferences}
     return render(request, 'conferences.html', context = context)
 
