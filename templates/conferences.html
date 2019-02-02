@@ -10,20 +10,16 @@
       <h3>Design Conferences 2019</h3>
     </div>
 {% for conference in all_conferences %}
- <div class="row" style="padding-top:40px">
+  <div class="row" style="padding-top:40px">
     <div class="col">
+      <a href="{{ conference.website }}"><img class="card-img-top lazyload" src="{% get_media_prefix %}placeholder.png" data-src="{% get_media_prefix %}{{ conference.header_image }}" data-srcset="{% get_media_prefix %}{{ conference.header_image }}" alt="{{ conference.title }}"></a>
+    </div>
+     <div class="col">
       <h3><a href="{{ conference.website }}">{{ conference.title }}</a></h3>
       <h4>{{ conference.from_date| date:"d M Y" }} - {{ conference.to_date| date:"d M Y" }}</h4>
       <h5>{{ conference.city }}</h5>
       <h5>{% if conference.currency == 1 %}${% endif %}
           {{ conference.price }}</h5>
-    </div>
- </div>
-  <div class="row">
-    <div class="col">
-      <a href="{{ conference.website }}"><img class="card-img-top lazyload" src="{% get_media_prefix %}placeholder.png" data-src="{% get_media_prefix %}{{ conference.header_image }}" data-srcset="{% get_media_prefix %}{{ conference.header_image }}" alt="{{ conference.title }}"></a>
-    </div>
-        <div class="col">
       {{ conference.tease|safe }}
     </div>
  </div>
