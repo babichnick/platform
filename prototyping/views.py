@@ -175,12 +175,16 @@ def prototypingtool(request, slug):
     tool_image_list = tool.images.all()
     publications_list = tool.publication_set.all()
     publication_list_published = publications_list.filter(status=2)
+    publication_updates = publication_list_published.filter(category__slug='update')
+    publication_plugins = publication_list_published.filter(category__slug='plugin')
     tool_pros = tool.pros.split("|")
     tool_cons = tool.cons.split("|")
     context = {
                  'tool': tool,
                  'tool_images': tool_image_list,
                  'publications':publication_list_published,
+                 'publication_updates':publication_updates,
+                 'publication_plugins':publication_plugins,
                  'tool_pros': tool_pros,
                  'tool_cons': tool_cons,
                }
