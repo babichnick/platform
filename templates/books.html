@@ -13,6 +13,27 @@
 <meta property="og:image"         content="{{ SITE_URL }}{% get_media_prefix %}{{ category.thumb }}" />
 {% endblock%}
 
+
+{% block libraries %}
+
+   <script>
+     $(document).ready(function(){
+       $('button').click(function (){
+
+         $('button').removeClass('btn-primary').addClass('btn-outline-primary ');
+         $(this).addClass('btn-primary').removeClass('btn-outline-primary ');
+
+         $('.card').removeClass('d-none');
+         var type = $(this).val(); // get the value of the input, which we filter on
+         if (type != 'All') {
+           $('.card-deck').find('.card .card-body h6:not(:contains("'+type+'"))').parent().parent().addClass('d-none');
+         }
+       });
+     });
+    </script>
+
+{% endblock%}
+
 {% block content %}
 
 
@@ -23,9 +44,20 @@
   </div>
 
 
+<div class="row justify-content-center mt-3"> 
+ <div class="col col-md-9">
+   <button class="btn btn-primary" type="button" id="btnall" value="All">All</button>
+   {% for bookcat in all_bookcategories %}
+   <button class="btn btn-outline-primary ml-2" type="button" id="btn{{bookcat.slug}}" value="{{bookcat.name}}">{{bookcat.name}}</button>
+   {% endfor %}
+ </div>
+ </div>
+
+
 <div class="row" style="padding-top:20px">
+  <div class="col-12">
+  <div class="card-deck"> 
  {% for book in all_books %}
- <div class="col-12 col-md-4 col-lg-3">
   <div class="card card-shadow mb-4">
 
    <div class="item-in-category">
@@ -34,14 +66,18 @@
    </div>
 
     <div class="card-body">
+      <h6 class="card-subtitle text-muted">
+          {{book.category}}
+      </h6>
       <p class="card-text toolcardbody">{{book.author}}</p>
       <h5 class="card-title toolcardtitle">{{book.title}}</h5>
       <p class="card-text toolcardbody">{{ book.tease|truncatechars:100 }}</p>
-    </div>
   </div>
 </div>
 {% endfor %}
+</div>
 
+</div>
 </div>
 </div>
  

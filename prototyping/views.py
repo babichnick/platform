@@ -5,7 +5,7 @@ from django.core.mail import send_mail
 
 from django.contrib.auth.forms import UserCreationForm
 
-from .models import Tool, PrototypingTool, Link, Resource, Publication, Contact, Toolbox, Toolboxcategory, Conference, Video, Book
+from .models import Tool, PrototypingTool, Link, Resource, Publication, Contact, Toolbox, Toolboxcategory, Conference, Video, Book, BookCategory
 
 from .forms import ContactForm, SignUpForm
 from django.http import HttpResponseRedirect
@@ -132,7 +132,9 @@ def videos(request):
 
 def books(request):
     all_books = Book.objects.filter(published=True)
-    context = {'all_books': all_books}
+    all_bookcategories = BookCategory.objects.all()
+    context = {'all_books': all_books,
+               'all_bookcategories':all_bookcategories}
     return render(request, 'books.html', context = context)
 
 def prototyping(request):
