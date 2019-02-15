@@ -328,14 +328,22 @@ class Link(models.Model):
         return self.url
 
 
+class VideoCategory(models.Model):
+    name = models.CharField(max_length=200)
+    slug = models.SlugField(unique=True)
+
+    class Meta:
+        verbose_name_plural = "VideoCategories"
+    
+    def __unicode__(self):
+        return self.name
+
+    def __str__(self):
+        return "%s" % self.name
+
+
 class Video(models.Model):
 
-  VIDEO_TYPE = (
-         (1, 'Genral Topics'),
-         (2, 'Design Lessons'), 
-         (3, 'Inspiration'), 
-    )
-  
   STATUS_CHOICES = (
          (1, 'Draft'),
          (2, 'Public'), 
@@ -351,7 +359,7 @@ class Video(models.Model):
   status = models.IntegerField(choices=STATUS_CHOICES, default=1)
 
   url = models.CharField(max_length=300, default="")
-  type = models.IntegerField(choices=VIDEO_TYPE, default=1)
+  category = models.ForeignKey(VideoCategory, on_delete=models.CASCADE, blank=True, null=True)
 
   def __str__(self):
     return self.title
