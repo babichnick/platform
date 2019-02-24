@@ -38,6 +38,7 @@ urlpatterns = [
     path('toolbox/reality/<str:category>/', views.alltoolsinbox),
     path('toolbox/ai/<str:category>/', views.alltoolsinbox),
     path('toolbox/accessibility/<str:category>/', views.alltoolsinbox),
+    path('toolbox/design-systems/<str:category>/', views.alltoolsinbox),
     path('conferences/', views.conferences),
     path('talks/', views.videos),
     path('books/', views.books),
