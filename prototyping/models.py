@@ -271,6 +271,7 @@ class Publication(models.Model):
     header_image = models.ImageField(upload_to=PathAndRename('publicationimage/'), blank=True, null=True)
     
     status = models.IntegerField(choices=STATUS_CHOICES, default=1)
+    targetlink = models.CharField(max_length=300, help_text="link to book", default="http://")
     
     pub_date = models.DateTimeField(default=datetime.datetime.now)
     created = models.DateTimeField(auto_now_add=True)
