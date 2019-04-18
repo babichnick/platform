@@ -31,6 +31,8 @@ urlpatterns = [
     path('tools/<str:slug>/' , views.prototypingtool),
     path('publications/<str:slug>/' , views.publications),
     path('freebies/' , views.allresources),
+    path('toolbox/', views.globaltools),
+    path('toolbox/prototyping/', views.alltools),
     path('toolbox/<str:slug>/', views.toolboxtool),
     path('toolbox/visual-design/<str:category>/', views.alltoolsinbox),
     path('toolbox/ux-design/<str:category>/', views.alltoolsinbox),

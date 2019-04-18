@@ -156,6 +156,9 @@ def alltoolsinbox(request,category):
                  }
     return render(request, 'toolbox_all.html', context = context)
 
+def globaltools(request):
+    return render(request, 'globaltools.html')
+
 
 def toolboxtool(request, slug):
     tool = Toolbox.objects.get(slug=slug)

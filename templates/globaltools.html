@@ -1,0 +1,139 @@
+{% extends "regular_page.html" %}
+{% load static %}
+
+
+{% block title %}<title>Tools for UX designers| UXPRO</title>{% endblock %}
+
+{% block opengraph %}
+<!-- Facebook OpenGraph" -->
+<meta property="og:url"           content="{{ SITE_URL }}{{ request.get_full_path }}" />
+<meta property="og:type"          content="article" />
+<meta property="og:title"         content="Tools for UX designers | UXPRO" />
+<meta property="og:description"   content="Currated collection of tools for UX designers" />
+<meta property="og:image"         content="{{ SITE_URL }}{% get_media_prefix %}toolbox.png" />
+{% endblock%}
+
+{% block content %}
+
+
+<div class="container maincontainer">
+   <div class="row justify-content-center mb-4">
+    <h3>Tools for UX designers</h3>
+  </div>
+<div class="row" style="padding-top:20px">
+
+
+
+ <div class="col-12 col-md-4 col-lg-3">
+  <div class="card card-shadow mb-4">
+
+    <div class="card-body">
+      <h5 class="card-title toolcardtitle">Prototyping</h5>
+      <p class="card-text toolcardbody"><a href="/toolbox/prototyping">All prototyping tools</a></p>
+    </div>
+  </div>
+</div>
+
+ <div class="col-12 col-md-4 col-lg-3">
+  <div class="card card-shadow mb-4">
+
+    <div class="card-body">
+      <h5 class="card-title toolcardtitle">Graphic & Visual Design</h5>
+      <p class="card-text toolcardbody"><a href="/toolbox/visual-design/colors/">Colors</a></p>
+      <p class="card-text toolcardbody"><a href="/toolbox/visual-design/icons/">Icons</a></p>
+      <p class="card-text toolcardbody"><a href="/toolbox/visual-design/illustrations/">Illustrations</a></p>
+      <p class="card-text toolcardbody"><a href="/toolbox/visual-design/photos/">Stock Photos</a></p>
+      <p class="card-text toolcardbody"><a href="/toolbox/visual-design/video/">Video</a></p>
+      <p class="card-text toolcardbody"><a href="/toolbox/visual-design/avatars/">Avatars</a></p>
+      <p class="card-text toolcardbody"><a href="/toolbox/visual-design/mockups/">Mockups</a></p>
+      <p class="card-text toolcardbody"><a href="/toolbox/visual-design/animation/">Animation</a></p>
+      <p class="card-text toolcardbody"><a href="/toolbox/visual-design/uikit/">UI Kits</a></p>
+    </div>
+  </div>
+</div>
+
+
+ <div class="col-12 col-md-4 col-lg-3">
+  <div class="card card-shadow mb-4">
+
+    <div class="card-body">
+      <h5 class="card-title toolcardtitle">User Experience</h5>
+        <p class="card-text toolcardbody"><a href="/toolbox/ux-design/brainstorming/">Brainstorming</a></p>
+        <p class="card-text toolcardbody"><a href="/toolbox/ux-design/design-strategy/">Design Strategy</a></p>
+        <p class="card-text toolcardbody"><a href="/toolbox/ux-design/usability-testing/">Usability Testing</a></p>
+        <p class="card-text toolcardbody"><a href="/toolbox/ux-design/user-journey/">User Journey</a></p>
+        <p class="card-text toolcardbody"><a href="/toolbox/ux-design/user-research/">User Research</a></p>
+    </div>
+  </div>
+</div>
+
+ <div class="col-12 col-md-4 col-lg-3">
+  <div class="card card-shadow mb-4">
+
+    <div class="card-body">
+      <h5 class="card-title toolcardtitle">Web Design</h5>
+        <p class="card-text toolcardbody"><a href="/toolbox/web-design/typography/">Typography</a></p>
+        <p class="card-text toolcardbody"><a href="/toolbox/web-design/web-inspector/">Inspectors</a></p>
+        <p class="card-text toolcardbody"><a href="/toolbox/web-design/image-editing/">Image Editing</a></p>
+        <p class="card-text toolcardbody"><a href="/toolbox/web-design/image-optimization/">Image Optimization</a></p>
+        <p class="card-text toolcardbody"><a href="/toolbox/web-design/visual-regression-testing/">Visual Regression Testing</a></p>
+        <p class="card-text toolcardbody"><a href="/toolbox/web-design/web-analytics/">Analytics</a></p>
+        <p class="card-text toolcardbody"><a href="/toolbox/web-design/performance-testing/">Performance Testing</a></p>
+        <p class="card-text toolcardbody"><a href="/toolbox/web-design/screenshots/">Screenshots</a></p>
+    </div>
+  </div>
+</div>
+
+
+ <div class="col-12 col-md-4 col-lg-3">
+  <div class="card card-shadow mb-4">
+
+    <div class="card-body">
+      <h5 class="card-title toolcardtitle">Design Systems</h5>
+          <p class="card-text toolcardbody"><a href="/toolbox/design-systems/design-systems-managers/">Managers</a></p> 
+          <p class="card-text toolcardbody"><a href="/toolbox/design-systems/version-control/">Version Control</a></p> 
+          <p class="card-text toolcardbody"><a href="/toolbox/design-systems/visual-audit/">Visual Audit</a></p>       
+    </div>
+  </div>
+</div>
+
+
+ <div class="col-12 col-md-4 col-lg-3">
+  <div class="card card-shadow mb-4">
+
+    <div class="card-body">
+      <h5 class="card-title toolcardtitle">Artificial Intelligence</h5>
+          <p class="card-text toolcardbody"><a href="/toolbox/ai/ai-powered-design/">AI-Powered Design</a></p>   
+          <p class="card-text toolcardbody"><a href="/toolbox/ai/ai-powered-development/">AI-Powered Development</a></p>   
+          <p class="card-text toolcardbody"><a href="/toolbox/ai/chatbots/">Chatbots</a></p>   
+          <p class="card-text toolcardbody"><a href="/toolbox/ai/ml/">Machine Learning</a></p>   
+    </div>
+  </div>
+</div>
+
+ <div class="col-12 col-md-4 col-lg-3">
+  <div class="card card-shadow mb-4">
+
+    <div class="card-body">
+      <h5 class="card-title toolcardtitle">Accessibility</h5>
+          <p class="card-text toolcardbody"><a href="/toolbox/accessibility/color-accessibility/">Color</a></p>
+          <p class="card-text toolcardbody"><a href="/toolbox/accessibility/automated-accessibility-testing/">Automated A11Y Testing</a></p> 
+    </div>
+  </div>
+</div>
+
+ <div class="col-12 col-md-4 col-lg-3">
+  <div class="card card-shadow mb-4">
+
+    <div class="card-body">
+      <h5 class="card-title toolcardtitle">AR & VR</h5>
+          <p class="card-text toolcardbody"><a href="/toolbox/reality/ar/">Augmented Reality</a></p>
+          <p class="card-text toolcardbody"><a href="/toolbox/reality/vr/">Virtual Reality</a></p> 
+    </div>
+  </div>
+</div>
+
+</div>
+</div>
+ 
+{% endblock %}
