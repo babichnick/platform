@@ -19,10 +19,12 @@ from django.urls import path, re_path
 from django.conf import settings
 from django.conf.urls.static import static
 from prototyping import views
+from prototyping.feeds import LatestNewsFeed
 
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('', views.index, name='index'),
+    path('feed/', LatestNewsFeed()),
     path('tag/<str:tag>/', views.index, name='index'),
     path('tag/<str:tag>/page/<int:pagenumber>/', views.index, name='index'),
     path('page/<int:pagenumber>/', views.index),
