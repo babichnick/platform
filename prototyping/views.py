@@ -182,6 +182,7 @@ def prototypingtool(request, slug):
     publication_list_published = publications_list.filter(status=2)
     publication_updates = publication_list_published.filter(category__slug='update')
     publication_plugins = publication_list_published.filter(category__slug='plugin')
+    publication_uikits = publication_list_published.filter(category__slug='uikit')
     tool_pros = tool.pros.split("|")
     tool_cons = tool.cons.split("|")
     context = {
@@ -190,6 +191,7 @@ def prototypingtool(request, slug):
                  'publications':publication_list_published,
                  'publication_updates':publication_updates,
                  'publication_plugins':publication_plugins,
+                 'publication_uikits':publication_uikits,
                  'tool_pros': tool_pros,
                  'tool_cons': tool_cons,
                }
