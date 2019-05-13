@@ -186,6 +186,15 @@ class Toolbox(models.Model):
   website = models.CharField(max_length=300, help_text="website address", default="http://")
   tags = TaggableManager()
 
+  #platform
+  availablefor_web = models.BooleanField(default = False, help_text="Tool has a web version")
+  availablefor_mac = models.BooleanField(default = False, help_text="Tool has a Mac version")
+  availablefor_windows = models.BooleanField(default = False, help_text="Tool has Windows version")
+  availablefor_linux = models.BooleanField(default = False, help_text="Tool has a Linux version")
+  availablefor_ios = models.BooleanField(default = False, help_text="Tool has iOS version")
+  availablefor_android = models.BooleanField(default = False, help_text="Tool has Android version")
+  availablefor_chrome = models.BooleanField(default = False, help_text="Chrome plugin")
+
   def __str__(self):
       return "%s" % self.name
 
