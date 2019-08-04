@@ -28,6 +28,8 @@ urlpatterns = [
     path('tag/<str:tag>/', views.index, name='index'),
     path('tag/<str:tag>/page/<int:pagenumber>/', views.index, name='index'),
     path('page/<int:pagenumber>/', views.index),
+    path('publications/', views.allpublications),
+    path('publications/page/<int:pagenumber>/', views.allpublications),
     path('compare/prototyping/', views.prototyping, name='prototyping'),
     path('tools/' , views.alltools),
     path('tools/<str:slug>/' , views.prototypingtool),

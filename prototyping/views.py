@@ -5,7 +5,7 @@ from django.core.mail import send_mail
 
 from django.contrib.auth.forms import UserCreationForm
 
-from .models import Tool, PrototypingTool, Link, Resource, Publication, Contact, Toolbox, Toolboxcategory, Conference, Video, Book, BookCategory
+from .models import Tool, PrototypingTool, Link, Resource, Publication, Contact, Toolbox, Toolboxcategory, Conference, Video, Book, BookCategory, Category
 
 from .forms import ContactForm, SignUpForm
 from django.http import HttpResponseRedirect
@@ -112,6 +112,43 @@ def index(request,pagenumber = 1, tag = None):
 
 
     return render(request, 'index.html', context=context)
+
+def allpublications(request,pagenumber = 1, tag = None):
+    #publications_list_published = Publication.objects.filter(status=2)#order_by('-pub_date')
+    #filter_by_tag = False
+    
+    #if tag is not None:
+    #  links_list_published = Publication.objects.filter(published=True, tags__slug=tag).order_by('-pub_date')
+    #  filter_by_tag = True
+
+    #else:
+    categories = Category.objects.all()
+    links_list_published = Publication.objects.filter(status=2).filter(category__name__contains="Article").order_by('-pub_date')
+    
+    paginator = Paginator(links_list_published, 12) #Show 12 latest publications
+
+    links = paginator.get_page(pagenumber)
+
+    
+    #if page:
+    #    context = {'publications': publications }
+    #    return render(request, 'index_paginated.html', context=context)
+    #else:
+    #    head_post = publications[0]
+    #    first_six_posts = publications[1:7]
+    #    second_six_posts = publications[7:13]
+    #    tail_post = publications[13]
+    context = { 'links': links,
+                #'filter_by_tag': filter_by_tag,
+                #'tag': tag,
+              }
+    #            'firstsixposts': first_six_posts,
+    #            'secondsixposts': second_six_posts,
+    #            'tailpost': tail_post,
+
+
+    return render(request, 'publications.html', context=context)
+
 
 def publications(request,slug):
     publication = Publication.objects.get(slug=slug)

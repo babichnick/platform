@@ -1,0 +1,66 @@
+{% extends "regular_page.html" %}
+{% load static %}
+
+
+{% block content %}
+
+
+<div class="container maincontainer">
+
+  {% if links.number == 1 %}
+  <div class="row justify-content-center mb-4">
+    <h3>Articles</h3>
+  </div>
+  {% endif %}
+<div class="row">
+ 
+ {% for link in links %}
+ <div class="col-12 col-md-4 col-lg-3">
+  <div class="card card-shadow mb-4">
+
+
+  <div class="item-in-category">
+     <a href="/publications/{{ link.slug }}">
+      <span class="image-badge"><img height="25" width="25" src="{% get_media_prefix %}{{ link.site.icon }}" alt="{{ link.site.name }}"></span>
+      <span class="notify-badge" style="background:{{link.category.color }}">{{ link.category.name }}</span>
+   <img class="card-img-top lazyload" src="{% get_media_prefix %}placeholder.png" data-src="{% get_media_prefix %}{{ link.header_image }}" data-srcset="{% get_media_prefix %}{{ link.header_image }}" alt="{{ link.title }}"></a>
+  </div>
+
+   
+    <div class="card-body">
+      <h6 class="card-subtitle toolcardsubtitle">{{ link.pub_date| date:"d M Y" }}
+
+      </h6>
+      <h5 class="card-title toolcardtitle"><a href="/publications/{{ link.slug }}">{{ link.title }}</a></h5>
+      <p class="card-text toolcardbody">{{ link.tease| truncatechars:160 }}</p>
+
+    </div>
+  </div>
+</div>
+{% endfor %}
+
+</div>
+
+<div class="row justify-content-center">
+<nav aria-label="Pagination">
+  <ul class="pagination">
+    {% if links.has_previous %}
+      <li class="page-item"><a class="page-link" href="/publications">1</a></li>
+      <li class="page-item"><a class="page-link" href="/publications/page/{{ links.previous_page_number }}">Previous</a></li>
+    {% endif %}
+
+    <li class="page-item"><a class="page-link" href="#">Page {{ links.number }} of {{ links.paginator.num_pages }}</a></li>
+
+    {% if links.has_next %}
+    <li class="page-item"><a class="page-link" href="/publications/page/{{ links.next_page_number }}">Next</a></li>
+    <li class="page-item"><a class="page-link" href="/publications/page/{{ links.paginator.num_pages }}">Last</a></li>
+    {% endif %}
+  </ul>
+</nav>
+
+
+</div>
+
+</div>
+ 
+{% endblock %}
