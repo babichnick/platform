@@ -33,7 +33,7 @@
 </div>
 
   <div class="row justify-content-start"> 
-  <div class="col">
+  <div class="col-8">
   <div class="media">
     <span class="media-left">
 
@@ -43,25 +43,28 @@
    <h1 style="padding-left:20px">{{ tool.name}}</h1>
     </div>
    </div>
+
+   <p style="padding-top:20px">
+    {{ tool.description|linebreaks}}
+   </p>
+
+   <p style="padding-top:20px">
+     <img class="d-block w-100" src="{% get_media_prefix %}{{ tool.header_image }}" alt="Slide">
+   </p>
+
+   <p style="padding-top:40px">
+     <a class="btn btn-primary btn-lg btn-block" href="{{ tool.website }}?ref=uxprocc" role="button" target="_blank">Check it out</a>
+   </p>
+
    </div>
+
+   <div class="col-4">
+     <script async type="text/javascript" src="//cdn.carbonads.com/carbon.js?serve=CE7DC23I&placement=uxprocc" id="_carbonads_js"></script>
+   </div>
+
     </div>
    
-   
-    <div class="row justify-content-start" style="padding-top:20px"> 
-	<div class="col-12 col-md-8">
-     {{ tool.description|linebreaks}}
-   </div>
- 
-<div class="col-12 col-md-8">
-   <img class="d-block w-100" src="{% get_media_prefix %}{{ tool.header_image }}" alt="Slide">
-</div>
 
-<div class="col-12 col-md-8" style="padding-top:20px">
-  <a class="btn btn-primary btn-lg btn-block" href="{{ tool.website }}?ref=uxprocc" role="button" target="_blank">Check it out</a>
-     
-   </div>
-
-   </div>
    
 
    
