@@ -51,7 +51,7 @@ urlpatterns = [
     path('books/', views.books),
     #path('blog/', views.blog),
     #path('blog/page<int:num>/', views.blog),
-    path('signup/', views.signup),
+    #path('signup/', views.signup),
     path('activateyouraccount/', views.activateyouraccount),
     re_path(r'^activate/(?P<uidb64>[0-9A-Za-z_\-]+)/(?P<token>[0-9A-Za-z]{1,13}-[0-9A-Za-z]{1,20})/$', views.activate, name='activate'),
     path('accountactive/', views.accountactive),
