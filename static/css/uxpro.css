@@ -282,29 +282,29 @@
 
 /* change the background color */
 .navbar-custom {
-    background-color: #2d72d9;
+    background-color: #ffda3a;
 }
 /* change the brand and text color */
 .navbar-custom .navbar-brand,
 .navbar-custom .navbar-text {
-    color: rgba(255,255,255,.8);
+    color: rgba(0,0,0,.8);
 	font-size: 17px;
 }
 /* change the link color */
 .navbar-custom .navbar-nav .nav-link {
-    color: rgba(255,255,255,.8);
+    color: rgba(0,0,0,.8);
 	font-size: 18px;
 }
 
 .navbar-custom .nav-item:focus .nav-link,
 .navbar-custom .nav-item:hover .nav-link {
     color: #ffffff;
-	background-color: #4A91F2; /* add background-color to active links */
+	background-color: #e5bd11; /* add background-color to active links */
 }
 
 .navbar-custom .nav-item.active .nav-link {
    color: #ffffff;
-   background-color: #8DBDFF; /* add background-color to active links */
+   background-color: #e5bd11; /* add background-color to active links */
 }
 
 .footer{
