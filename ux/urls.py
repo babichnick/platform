@@ -23,7 +23,8 @@ from prototyping.feeds import LatestNewsFeed
 
 urlpatterns = [
     path('admin/', admin.site.urls),
-    path('', views.index, name='index'),
+    #path('', views.index, name='index'),
+    path('', views.allpublications),
     path('feed/', LatestNewsFeed()),
     path('tag/<str:tag>/', views.index, name='index'),
     path('tag/<str:tag>/page/<int:pagenumber>/', views.index, name='index'),
