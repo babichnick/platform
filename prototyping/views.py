@@ -254,7 +254,7 @@ def contact_me(request):
             sender = 'hello@uxpro.cc'
             recipients = ['nick@babich.biz']
 
-            send_mail(subject, message, sender, recipients)
+            #send_mail(subject, message, sender, recipients)
             
             # redirect to a new URL:
             return HttpResponseRedirect('/')
